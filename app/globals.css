@@ -221,23 +221,33 @@ body {
 }
 
 .brand-footer {
-  aspect-ratio: 3 / 1;
-  min-height: 11rem;
+  /* Desktop art: 1024 × 355 */
+  aspect-ratio: 1024 / 355;
+  min-height: 12rem;
 }
 
 .brand-footer-bg {
   object-fit: cover;
-  object-position: center top;
+  object-position: top center;
+}
+
+.brand-footer-bg-mobile {
+  display: none;
 }
 
 @media (max-width: 767px) {
   .brand-footer {
-    /* Match source art so the pale top isn’t cropped away */
+    /* Mobile art: 402 × 350 — keep pale top visible */
     aspect-ratio: 402 / 350;
     min-height: 18rem;
   }
 
-  .brand-footer-bg {
+  .brand-footer-bg-desktop {
+    display: none;
+  }
+
+  .brand-footer-bg-mobile {
+    display: block;
     inset: 0 !important;
     width: 100% !important;
     height: 100% !important;
@@ -249,11 +259,15 @@ body {
 
 @media (min-width: 768px) {
   .brand-footer {
-    min-height: 14rem;
+    min-height: clamp(14rem, 24vw, 20rem);
   }
 
-  .brand-footer-bg {
-    object-position: center center;
+  .brand-footer-bg-desktop {
+    inset: 0 !important;
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover;
+    object-position: top center;
   }
 }
 

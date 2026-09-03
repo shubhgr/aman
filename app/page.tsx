@@ -489,11 +489,19 @@ export default function Home() {
 
       <footer className="brand-footer relative isolate flex items-center justify-center overflow-hidden">
         <Image
-          src="/footer/gradright-footer-gradient.png"
+          src="/footer/gradright-footer-desktop.jpg"
           alt=""
           fill
           sizes="100vw"
-          className="brand-footer-bg -z-10"
+          className="brand-footer-bg brand-footer-bg-desktop -z-10"
+          priority
+        />
+        <Image
+          src="/footer/gradright-footer-mobile.png"
+          alt=""
+          fill
+          sizes="100vw"
+          className="brand-footer-bg brand-footer-bg-mobile -z-10"
         />
         <Image
           src="/footer/gradright-logo-white.png"
