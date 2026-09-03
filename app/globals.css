@@ -41,6 +41,13 @@ body {
   color: var(--foreground);
 }
 
+.hero-wash {
+  background:
+    radial-gradient(ellipse 80% 60% at 12% 18%, color-mix(in srgb, #782bff 10%, transparent), transparent 55%),
+    radial-gradient(ellipse 70% 50% at 80% 90%, color-mix(in srgb, #121022 5%, transparent), transparent 50%),
+    linear-gradient(160deg, #f3f1f6 0%, #f8f7f9 42%, #f1eff5 100%);
+}
+
 @keyframes rise {
   from {
     opacity: 0;
@@ -61,13 +68,36 @@ body {
   }
 }
 
+@keyframes photo-in {
+  from {
+    opacity: 0;
+    transform: scale(1.06);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
 @keyframes drift {
   0%,
   100% {
-    transform: translate3d(0, 0, 0) scale(1);
+    transform: translate3d(0, 0, 0);
   }
   50% {
-    transform: translate3d(2%, -1.5%, 0) scale(1.04);
+    transform: translate3d(1.5%, -1%, 0);
+  }
+}
+
+@keyframes scroll-cue {
+  0%,
+  100% {
+    transform: translateY(0);
+    opacity: 0.45;
+  }
+  50% {
+    transform: translateY(6px);
+    opacity: 1;
   }
 }
 
@@ -92,8 +122,16 @@ body {
   animation: draw-line 1.1s cubic-bezier(0.22, 1, 0.36, 1) 0.45s both;
 }
 
+.animate-photo {
+  animation: photo-in 1.35s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
 .animate-drift {
   animation: drift 18s ease-in-out infinite;
+}
+
+.animate-scroll-cue {
+  animation: scroll-cue 2.2s ease-in-out infinite;
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -106,7 +144,9 @@ body {
   .animate-rise-delay-2,
   .animate-rise-delay-3,
   .animate-draw,
-  .animate-drift {
+  .animate-photo,
+  .animate-drift,
+  .animate-scroll-cue {
     animation: none;
   }
 }
