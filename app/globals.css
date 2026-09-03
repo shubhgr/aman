@@ -41,6 +41,194 @@ body {
   color: var(--foreground);
 }
 
+/* Type scale — keep hierarchy consistent sitewide */
+.t-display {
+  font-size: clamp(2.5rem, 5.5vw, 4rem);
+  font-weight: 600;
+  line-height: 0.98;
+  letter-spacing: -0.04em;
+  color: var(--foreground);
+}
+
+.t-h2 {
+  font-size: clamp(1.75rem, 3vw, 2.25rem);
+  font-weight: 600;
+  line-height: 1.2;
+  letter-spacing: -0.025em;
+  color: var(--foreground);
+}
+
+.t-lead {
+  font-size: 1.0625rem;
+  line-height: 1.75;
+  color: var(--muted);
+}
+
+@media (min-width: 640px) {
+  .t-lead {
+    font-size: 1.125rem;
+    line-height: 1.75;
+  }
+}
+
+.t-body {
+  font-size: 1rem;
+  line-height: 1.75;
+  color: var(--muted);
+}
+
+.t-body-strong {
+  font-size: 1.0625rem;
+  font-weight: 500;
+  line-height: 1.75;
+  color: var(--foreground);
+}
+
+@media (min-width: 640px) {
+  .t-body-strong {
+    font-size: 1.125rem;
+  }
+}
+
+.t-quote {
+  font-size: 1.0625rem;
+  font-style: italic;
+  font-weight: 400;
+  line-height: 1.45;
+  letter-spacing: -0.01em;
+  color: var(--foreground);
+}
+
+@media (min-width: 640px) {
+  .t-quote {
+    font-size: 1.125rem;
+  }
+}
+
+.t-card-title {
+  font-size: 1rem;
+  font-weight: 600;
+  line-height: 1.4;
+  color: var(--foreground);
+}
+
+.t-meta {
+  font-size: 0.875rem;
+  line-height: 1.5;
+  color: var(--muted);
+}
+
+.t-meta-brand {
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--brand);
+}
+
+.t-stat {
+  font-size: clamp(1.875rem, 3vw, 2.25rem);
+  font-weight: 600;
+  letter-spacing: -0.025em;
+  line-height: 1.1;
+  color: var(--foreground);
+}
+
+.t-link {
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--foreground);
+  transition: color 0.15s ease;
+}
+
+.t-link:hover {
+  color: var(--brand);
+}
+
+/* Spacing scale — keep padding/gaps consistent sitewide */
+.s-container {
+  width: 100%;
+  max-width: 72rem;
+  margin-inline: auto;
+  padding-inline: 1.5rem;
+}
+
+@media (min-width: 640px) {
+  .s-container {
+    padding-inline: 2rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .s-container {
+    padding-inline: 2.5rem;
+  }
+}
+
+.s-section {
+  padding-block: 4rem;
+}
+
+@media (min-width: 1024px) {
+  .s-section {
+    padding-block: 5rem;
+  }
+}
+
+.s-section-hero {
+  padding-block: 3rem;
+}
+
+@media (min-width: 1024px) {
+  .s-section-hero {
+    padding-block: 4rem;
+  }
+}
+
+.s-section-footer {
+  padding-block: 2rem;
+}
+
+.s-after-title {
+  margin-top: 1.25rem;
+}
+
+.s-after-header {
+  margin-top: 3rem;
+}
+
+.s-stack {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.s-grid-gap {
+  gap: 1rem;
+}
+
+.s-split-gap {
+  gap: 2.5rem;
+}
+
+@media (min-width: 1024px) {
+  .s-split-gap {
+    gap: 3.5rem;
+  }
+}
+
+.s-row {
+  padding-block: 1.25rem;
+}
+
+.s-after-media {
+  margin-top: 1rem;
+}
+
+.s-after-label {
+  margin-top: 0.25rem;
+}
+
 .hero-wash {
   background:
     radial-gradient(ellipse 80% 60% at 12% 18%, color-mix(in srgb, #782bff 10%, transparent), transparent 55%),
@@ -134,6 +322,53 @@ body {
   animation: scroll-cue 2.2s ease-in-out infinite;
 }
 
+@keyframes marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+.logo-marquee {
+  overflow: hidden;
+  mask-image: linear-gradient(
+    to right,
+    transparent,
+    #000 8%,
+    #000 92%,
+    transparent
+  );
+}
+
+.logo-marquee-track {
+  display: flex;
+  width: max-content;
+  gap: 2.5rem;
+  align-items: center;
+  animation: marquee 28s linear infinite;
+}
+
+.logo-marquee-track:hover {
+  animation-play-state: paused;
+}
+
+.logo-marquee-item {
+  display: flex;
+  height: 2rem;
+  flex-shrink: 0;
+  align-items: center;
+  opacity: 0.7;
+  filter: grayscale(1);
+  transition: opacity 0.2s ease, filter 0.2s ease;
+}
+
+.logo-marquee-item:hover {
+  opacity: 1;
+  filter: grayscale(0);
+}
+
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;
@@ -146,7 +381,18 @@ body {
   .animate-draw,
   .animate-photo,
   .animate-drift,
-  .animate-scroll-cue {
+  .animate-scroll-cue,
+  .logo-marquee-track {
     animation: none;
+  }
+
+  .logo-marquee {
+    mask-image: none;
+  }
+
+  .logo-marquee-track {
+    flex-wrap: wrap;
+    width: 100%;
+    gap: 1.25rem 1.5rem;
   }
 }
