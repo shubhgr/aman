@@ -30,7 +30,7 @@ export default function GalleryMarquee({ images }: { images: GalleryImage[] }) {
     let lastTime = performance.now();
     let frameId = 0;
 
-    const speed = window.innerWidth < 768 ? 0.08 : 0.4;
+    const speed = window.innerWidth < 768 ? 0.08 : 0.2;
 
     const tick = (now: number) => {
       if (!isDragging.current && !isPaused.current) {

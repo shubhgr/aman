@@ -17,7 +17,7 @@ const credentials = [
     marks: [{ src: "/marks/isb.png", alt: "ISB" }],
   },
   {
-    role: "Co-Founder",
+    role: "Co-Founder and CEO",
     org: "GradRight Inc.",
     when: "2019 – present",
     marks: [{ src: "/marks/gradright.png", alt: "GradRight" }],
@@ -50,7 +50,7 @@ const credentials = [
 const impact = [
   { value: "₹36,000 Cr", label: "Total loans processed" },
   { value: "300,000+", label: "Students served" },
-  { value: "1M+", label: "Lives touched" },
+  { value: "100M", label: "Media impressions" },
 ];
 
 const universities = [
