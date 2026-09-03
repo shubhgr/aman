@@ -220,6 +220,10 @@ body {
   padding-block: 2rem;
 }
 
+.brand-footer {
+  aspect-ratio: 3 / 1;
+}
+
 .s-after-title {
   margin-top: 1.25rem;
 }
@@ -478,6 +482,131 @@ body {
 
 .gallery-marquee-item:hover img {
   transform: scale(1.04);
+}
+
+.event-video-grid {
+  display: flex;
+  gap: 1.5rem;
+  overflow-x: auto;
+  scrollbar-width: none;
+  -webkit-overflow-scrolling: touch;
+}
+
+.event-video-grid::-webkit-scrollbar {
+  display: none;
+}
+
+.event-video-card {
+  position: relative;
+  width: min(78vw, 20rem);
+  aspect-ratio: 16 / 9;
+  flex: 0 0 auto;
+  overflow: hidden;
+  background: #121022;
+}
+
+.event-video-link {
+  position: absolute;
+  inset: 0;
+  display: block;
+  width: 100%;
+  padding: 0;
+  border: 0;
+  background: none;
+  cursor: pointer;
+}
+
+.event-video-link img {
+  width: 100%;
+  height: 100%;
+  transition: transform 0.45s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.event-video-link:hover img {
+  transform: scale(1.04);
+}
+
+.event-video-play {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 2.75rem;
+  height: 2rem;
+  transform: translate(-50%, -50%);
+  border-radius: 0.5rem;
+  background: #ff0033;
+  box-shadow: 0 0.5rem 1.5rem rgb(18 16 34 / 24%);
+}
+
+.event-video-play::after {
+  position: absolute;
+  top: 50%;
+  left: 54%;
+  width: 0;
+  height: 0;
+  transform: translate(-50%, -50%);
+  border-block: 0.38rem solid transparent;
+  border-left: 0.55rem solid #fff;
+  content: "";
+}
+
+@media (min-width: 768px) {
+  .event-video-grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    overflow: visible;
+  }
+
+  .event-video-card {
+    width: auto;
+  }
+}
+
+.event-video-modal {
+  position: fixed;
+  z-index: 50;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  padding: 1.5rem;
+}
+
+.event-video-modal-backdrop {
+  position: absolute;
+  inset: 0;
+  border: 0;
+  background: rgb(18 16 34 / 82%);
+  cursor: default;
+}
+
+.event-video-modal-panel {
+  position: relative;
+  z-index: 1;
+  width: min(100%, 70rem);
+  aspect-ratio: 16 / 9;
+  background: #121022;
+  box-shadow: 0 1.5rem 4rem rgb(18 16 34 / 38%);
+}
+
+.event-video-modal-panel iframe {
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+.event-video-modal-close {
+  position: absolute;
+  z-index: 1;
+  top: -2.75rem;
+  right: 0;
+  border: 1px solid rgb(248 247 249 / 45%);
+  border-radius: 999px;
+  padding: 0.55rem 0.9rem;
+  background: #121022;
+  color: #f8f7f9;
+  font-size: 0.8125rem;
+  font-weight: 600;
+  cursor: pointer;
 }
 
 @media (max-width: 767px) {

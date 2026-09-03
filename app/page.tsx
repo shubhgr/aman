@@ -1,6 +1,6 @@
 import Image from "next/image";
 import CyclingMarks from "./components/CyclingMarks";
-import GalleryMarquee from "./components/GalleryMarquee";
+import EventVideoRail from "./components/EventVideoRail";
 import GradRightLogo from "./components/GradRightLogo";
 
 const credentials = [
@@ -130,14 +130,11 @@ const articles = [
   },
 ];
 
-const galleryImages = [
-  { src: "/gallery/1.png", alt: "Aman Singh at an education event" },
-  { src: "/gallery/2.png", alt: "Aman Singh speaking at a conference" },
-  { src: "/gallery/3.png", alt: "Aman Singh with policymakers" },
-  { src: "/gallery/4.png", alt: "Aman Singh at a university event" },
-  { src: "/gallery/5.png", alt: "Aman Singh at ShiftED" },
-  { src: "/gallery/6.jpg", alt: "Aman Singh at the ShiftED event" },
-  { src: "/gallery/7.jpg", alt: "Aman Singh speaking with guests at ShiftED" },
+const eventVideos = [
+  { id: "7RuUEtwWRmY", title: "Rethinking Higher Education event video 1" },
+  { id: "Ae-cAX4R32g", title: "Rethinking Higher Education event video 2" },
+  { id: "KhPlCBUAbcM", title: "Rethinking Higher Education event video 3" },
+  { id: "mpxLKIQ7MQU", title: "Rethinking Higher Education event video 4" },
 ];
 
 function FeaturedIn({ className = "" }: { className?: string }) {
@@ -340,7 +337,7 @@ export default function Home() {
               {universities.map((uni) => (
                 <li
                   key={uni.name}
-                  className="flex flex-col border border-dashed border-line bg-background p-5"
+                  className="flex flex-col border border-dashed border-line bg-background p-5 text-center sm:text-left"
                 >
                   <div className="flex h-24 items-center justify-center px-4">
                     {/* eslint-disable-next-line @next/next/no-img-element */}
@@ -369,7 +366,7 @@ export default function Home() {
               </p>
             </div>
 
-            <ul className="s-after-header grid s-grid-gap sm:grid-cols-2">
+            <ul className="s-after-header grid gap-x-4 gap-y-10 sm:grid-cols-2 sm:gap-y-4">
               {[
                 {
                   src: "/mithilesh-tiwari.jpg",
@@ -407,18 +404,18 @@ export default function Home() {
           </div>
         </section>
 
-        {/* Gallery */}
-        <section id="gallery" className="border-t border-line overflow-hidden">
+        {/* Events */}
+        <section id="events" className="border-t border-line overflow-hidden">
           <div className="s-container s-section pb-8 lg:pb-10">
-            <h2 className="t-h2">Gallery</h2>
+            <h2 className="t-h2">Rethinking Higher Education Events</h2>
           </div>
-          <GalleryMarquee images={galleryImages} />
+          <EventVideoRail videos={eventVideos} />
         </section>
 
         {/* Articles */}
         <section
           id="articles"
-          className="border-t border-line bg-[color-mix(in_srgb,#782BFF_5%,#F8F7F9)]"
+          className="border-t border-line bg-background"
         >
           <div className="s-container s-section">
             <div className="flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between lg:gap-10">
@@ -486,6 +483,24 @@ export default function Home() {
           </div>
         </section>
       </main>
+
+      <footer className="brand-footer relative isolate flex items-center justify-center overflow-hidden">
+        <Image
+          src="/footer/gradright-footer-gradient.png"
+          alt=""
+          fill
+          sizes="100vw"
+          className="-z-10 object-cover object-center"
+        />
+        <Image
+          src="/footer/gradright-logo-white.png"
+          alt="GradRight"
+          width={1794}
+          height={400}
+          sizes="(max-width: 640px) 62vw, 38rem"
+          className="h-auto w-[62vw] max-w-[38rem] translate-y-8 sm:w-[42vw] lg:w-[34vw]"
+        />
+      </footer>
     </div>
   );
 }
