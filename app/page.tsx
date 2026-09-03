@@ -191,7 +191,7 @@ export default function Home() {
                 <div className="animate-rise-delay-2 mt-7 max-w-md space-y-4 text-[1.05rem] leading-relaxed text-muted sm:text-lg sm:leading-8">
                   <p>Co-Founder, CEO of GradRight.</p>
                   <p>
-                    B.Tech, IIT Delhi
+                    B.Tech, IIT Delhi.
                     <br />
                     MBA, Indian School of Business, Hyderabad.
                   </p>
@@ -302,7 +302,10 @@ export default function Home() {
         {/* Impact */}
         <section id="impact" className="border-t border-line">
           <div className="s-container s-section">
-            <h2 className="t-h2 max-w-2xl">Scale built through GradRight</h2>
+            <h2 className="t-h2 flex max-w-2xl flex-wrap items-center gap-x-2.5 gap-y-1">
+              <span>Scale built through</span>
+              <GradRightLogo className="h-[1.35em] w-auto translate-y-[0.02em]" />
+            </h2>
 
             <dl className="s-after-header grid gap-8 sm:grid-cols-3">
               {impact.map((item) => (
@@ -407,7 +410,7 @@ export default function Home() {
         {/* Events */}
         <section id="events" className="border-t border-line overflow-hidden">
           <div className="s-container s-section pb-8 lg:pb-10">
-            <h2 className="t-h2">Rethinking Higher Education Events</h2>
+            <h2 className="t-h2">Rethinking higher education events</h2>
           </div>
           <EventVideoRail videos={eventVideos} />
         </section>
@@ -490,7 +493,7 @@ export default function Home() {
           alt=""
           fill
           sizes="100vw"
-          className="-z-10 object-cover object-center"
+          className="brand-footer-bg -z-10"
         />
         <Image
           src="/footer/gradright-logo-white.png"
@@ -498,7 +501,7 @@ export default function Home() {
           width={1794}
           height={400}
           sizes="(max-width: 640px) 62vw, 38rem"
-          className="h-auto w-[62vw] max-w-[38rem] translate-y-8 sm:w-[42vw] lg:w-[34vw]"
+          className="relative z-10 h-auto w-[62vw] max-w-[38rem] translate-y-4 sm:w-[42vw] sm:translate-y-8 lg:w-[34vw]"
         />
       </footer>
     </div>
