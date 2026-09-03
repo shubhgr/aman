@@ -1,4 +1,5 @@
 import Image from "next/image";
+import CyclingMarks from "./components/CyclingMarks";
 import GradRightLogo from "./components/GradRightLogo";
 
 const credentials = [
@@ -128,6 +129,14 @@ const articles = [
   },
 ];
 
+const galleryImages = [
+  { src: "/gallery/1.png", alt: "Aman Singh at an education event" },
+  { src: "/gallery/2.png", alt: "Aman Singh speaking at a conference" },
+  { src: "/gallery/3.png", alt: "Aman Singh with policymakers" },
+  { src: "/gallery/4.png", alt: "Aman Singh at a university event" },
+  { src: "/gallery/5.png", alt: "Aman Singh at ShiftED" },
+];
+
 function FeaturedIn({ className = "" }: { className?: string }) {
   const logos = [...publications, ...publications];
 
@@ -180,7 +189,7 @@ export default function Home() {
                 <div className="animate-draw mt-4 h-px w-14 origin-left bg-brand/70" />
 
                 <div className="animate-rise-delay-2 mt-7 max-w-md space-y-4 text-[1.05rem] leading-relaxed text-muted sm:text-lg sm:leading-8">
-                  <p>Co-Founder of GradRight.</p>
+                  <p>Co-Founder, CEO of GradRight.</p>
                   <p>
                     B.Tech, IIT Delhi
                     <br />
@@ -214,8 +223,8 @@ export default function Home() {
           <div className="s-container s-section grid s-split-gap lg:grid-cols-[0.9fr_1.1fr]">
             <div>
               <h2 className="t-h2">
-                Twenty-five years shaping how India builds universities, and
-                how students reach them.
+                25 years shaping how India builds universities, and how
+                students reach them.
               </h2>
             </div>
 
@@ -253,20 +262,17 @@ export default function Home() {
                   className="s-row border-b border-line sm:odd:pr-8 sm:even:pl-8"
                 >
                   <div className="flex items-start gap-3">
-                    <div className="mt-0.5 flex shrink-0 items-center gap-1.5">
-                      {(item.marks ?? []).map((mark) => (
+                    <div className="mt-0.5 flex shrink-0 items-center">
+                      {(item.marks?.length ?? 0) > 1 ? (
+                        <CyclingMarks marks={item.marks ?? []} />
+                      ) : item.marks?.[0] ? (
                         // eslint-disable-next-line @next/next/no-img-element
                         <img
-                          key={mark.alt}
-                          src={mark.src}
-                          alt={mark.alt}
-                          className={
-                            (item.marks?.length ?? 0) > 1
-                              ? "h-6 w-6 object-contain"
-                              : "h-8 w-8 object-contain"
-                          }
+                          src={item.marks[0].src}
+                          alt={item.marks[0].alt}
+                          className="h-8 w-8 object-contain"
                         />
-                      ))}
+                      ) : null}
                     </div>
                     <div className="min-w-0 flex-1">
                       <div className="flex items-baseline justify-between gap-4">
@@ -384,6 +390,39 @@ export default function Home() {
                 </li>
               ))}
             </ul>
+          </div>
+        </section>
+
+        {/* Gallery */}
+        <section id="gallery" className="border-t border-line overflow-hidden">
+          <div className="s-container s-section pb-8 lg:pb-10">
+            <h2 className="t-h2">Gallery</h2>
+          </div>
+          <div className="gallery-marquee pb-16 lg:pb-20">
+            <div className="gallery-marquee-track">
+              {[...galleryImages, ...galleryImages].map((item, index) => (
+                <div
+                  key={`row-a-${item.src}-${index}`}
+                  className="gallery-marquee-item"
+                  aria-hidden={index >= galleryImages.length}
+                >
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img src={item.src} alt={item.alt} />
+                </div>
+              ))}
+            </div>
+            <div className="gallery-marquee-track gallery-marquee-track-reverse">
+              {[...galleryImages, ...galleryImages].map((item, index) => (
+                <div
+                  key={`row-b-${item.src}-${index}`}
+                  className="gallery-marquee-item"
+                  aria-hidden={index >= galleryImages.length}
+                >
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img src={item.src} alt={item.alt} />
+                </div>
+              ))}
+            </div>
           </div>
         </section>
 
