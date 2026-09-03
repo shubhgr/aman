@@ -1,5 +1,6 @@
 import Image from "next/image";
 import CyclingMarks from "./components/CyclingMarks";
+import GalleryMarquee from "./components/GalleryMarquee";
 import GradRightLogo from "./components/GradRightLogo";
 
 const credentials = [
@@ -398,32 +399,7 @@ export default function Home() {
           <div className="s-container s-section pb-8 lg:pb-10">
             <h2 className="t-h2">Gallery</h2>
           </div>
-          <div className="gallery-marquee pb-16 lg:pb-20">
-            <div className="gallery-marquee-track">
-              {[...galleryImages, ...galleryImages].map((item, index) => (
-                <div
-                  key={`row-a-${item.src}-${index}`}
-                  className="gallery-marquee-item"
-                  aria-hidden={index >= galleryImages.length}
-                >
-                  {/* eslint-disable-next-line @next/next/no-img-element */}
-                  <img src={item.src} alt={item.alt} />
-                </div>
-              ))}
-            </div>
-            <div className="gallery-marquee-track gallery-marquee-track-reverse">
-              {[...galleryImages, ...galleryImages].map((item, index) => (
-                <div
-                  key={`row-b-${item.src}-${index}`}
-                  className="gallery-marquee-item"
-                  aria-hidden={index >= galleryImages.length}
-                >
-                  {/* eslint-disable-next-line @next/next/no-img-element */}
-                  <img src={item.src} alt={item.alt} />
-                </div>
-              ))}
-            </div>
-          </div>
+          <GalleryMarquee images={galleryImages} />
         </section>
 
         {/* Articles */}

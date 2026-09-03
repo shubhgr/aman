@@ -380,68 +380,66 @@ body {
   filter: grayscale(0);
 }
 
-.mark-marquee {
-  overflow: hidden;
-}
-
-.mark-marquee-track {
-  display: flex;
-  width: max-content;
-  height: 100%;
-  animation: marquee 14s linear infinite reverse;
-}
-
-.mark-marquee-item {
-  display: flex;
-  width: 2rem;
-  height: 2rem;
-  flex-shrink: 0;
-  align-items: center;
-  justify-content: center;
-}
-
 .gallery-marquee {
   position: relative;
   overflow: hidden;
   mask-image: linear-gradient(
     to right,
-    transparent,
-    #000 10%,
-    #000 90%,
-    transparent
+    transparent 0%,
+    rgba(0, 0, 0, 0.15) 4%,
+    rgba(0, 0, 0, 0.55) 10%,
+    #000 18%,
+    #000 82%,
+    rgba(0, 0, 0, 0.55) 90%,
+    rgba(0, 0, 0, 0.15) 96%,
+    transparent 100%
   );
   -webkit-mask-image: linear-gradient(
     to right,
-    transparent,
-    #000 10%,
-    #000 90%,
-    transparent
+    transparent 0%,
+    rgba(0, 0, 0, 0.15) 4%,
+    rgba(0, 0, 0, 0.55) 10%,
+    #000 18%,
+    #000 82%,
+    rgba(0, 0, 0, 0.55) 90%,
+    rgba(0, 0, 0, 0.15) 96%,
+    transparent 100%
   );
+}
+
+.gallery-marquee-scroll {
+  overflow-x: auto;
+  overflow-y: hidden;
+  cursor: grab;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+  touch-action: none;
+}
+
+.gallery-marquee-scroll::-webkit-scrollbar {
+  display: none;
+}
+
+.gallery-marquee-scroll.is-grabbing {
+  cursor: grabbing;
+  user-select: none;
+}
+
+.gallery-marquee-scroll.is-grabbing .gallery-marquee-item img {
+  pointer-events: none;
 }
 
 .gallery-marquee-track {
   display: flex;
   width: max-content;
-  gap: 1.25rem;
+  gap: 1.5rem;
   align-items: stretch;
-  animation: marquee 55s linear infinite;
-}
-
-.gallery-marquee-track-reverse {
-  animation-direction: reverse;
-  animation-duration: 65s;
-  margin-top: 1.25rem;
-}
-
-.gallery-marquee-track:hover,
-.gallery-marquee-track-reverse:hover {
-  animation-play-state: paused;
 }
 
 .gallery-marquee-item {
   position: relative;
   flex-shrink: 0;
-  width: min(78vw, 26rem);
+  width: min(88vw, 36rem);
   aspect-ratio: 16 / 10;
   overflow: hidden;
   background: color-mix(in srgb, #121022 4%, #f8f7f9);
@@ -472,9 +470,7 @@ body {
   .animate-drift,
   .animate-scroll-cue,
   .logo-marquee-track,
-  .mark-marquee-track,
-  .gallery-marquee-track,
-  .gallery-marquee-track-reverse {
+  .gallery-marquee-scroll {
     animation: none;
   }
 
@@ -484,27 +480,15 @@ body {
     -webkit-mask-image: none;
   }
 
-  .mark-marquee-track {
-    flex-wrap: wrap;
-    width: auto;
-    max-width: 2rem;
-  }
-
   .logo-marquee-track {
     flex-wrap: wrap;
     width: 100%;
     gap: 1.25rem 1.5rem;
   }
 
-  .gallery-marquee-track,
-  .gallery-marquee-track-reverse {
+  .gallery-marquee-track {
     flex-wrap: wrap;
     width: 100%;
     justify-content: center;
-    margin-top: 0;
-  }
-
-  .gallery-marquee-item img {
-    transition: none;
   }
 }
