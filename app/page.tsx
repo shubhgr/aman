@@ -149,12 +149,12 @@ export default function Home() {
 
             <div className="animate-photo relative mx-auto aspect-[4/5] w-full max-w-[240px] overflow-hidden sm:max-w-[280px] lg:mx-0 lg:max-w-none">
               <Image
-                src="/aman-singh.png"
+                src="/aman-singh.jpg"
                 alt="Aman Singh, Co-Founder of GradRight"
                 fill
                 priority
                 sizes="(max-width: 1024px) 280px, 360px"
-                className="object-cover object-[center_18%]"
+                className="object-cover object-[center_20%]"
               />
             </div>
           </div>
@@ -341,8 +341,8 @@ export default function Home() {
                     "Mithilesh Tiwari (Education Minister of Bihar) facilitating Aman Singh for establishing Nav Vihar University.",
                 },
                 {
-                  src: "/mithilesh-tiwari.jpg",
-                  alt: "Mithilesh Tiwari, Education Minister of Bihar, with Aman Singh",
+                  src: "/policymaker-2.jpg",
+                  alt: "Aman Singh at a public event with policymakers",
                   title: "Establishing Nav Vihar University",
                   caption:
                     "Mithilesh Tiwari (Education Minister of Bihar) facilitating Aman Singh for establishing Nav Vihar University.",
