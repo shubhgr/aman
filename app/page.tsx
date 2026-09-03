@@ -136,6 +136,8 @@ const galleryImages = [
   { src: "/gallery/3.png", alt: "Aman Singh with policymakers" },
   { src: "/gallery/4.png", alt: "Aman Singh at a university event" },
   { src: "/gallery/5.png", alt: "Aman Singh at ShiftED" },
+  { src: "/gallery/6.jpg", alt: "Aman Singh at the ShiftED event" },
+  { src: "/gallery/7.jpg", alt: "Aman Singh speaking with guests at ShiftED" },
 ];
 
 function FeaturedIn({ className = "" }: { className?: string }) {
@@ -176,8 +178,8 @@ export default function Home() {
         <section className="relative overflow-hidden border-b border-line">
           <div className="absolute inset-0 hero-wash" />
 
-          <div className="s-container s-section-hero relative grid items-stretch s-split-gap lg:grid-cols-[1.2fr_0.8fr]">
-            <div className="relative z-10 flex h-full min-h-0 flex-col gap-8">
+          <div className="hero-layout s-container s-section-hero relative grid items-stretch s-split-gap">
+            <div className="relative z-10 flex h-full min-h-0 min-w-0 flex-col gap-8">
               <div className="animate-rise">
                 <GradRightLogo className="h-8 w-auto sm:h-9" />
               </div>
@@ -203,16 +205,27 @@ export default function Home() {
                 </div>
               </div>
 
-              <FeaturedIn className="animate-rise-delay-3 w-full max-w-xl" />
+              <FeaturedIn className="animate-rise-delay-3 w-full max-w-full xl:max-w-xl" />
             </div>
 
-            <div className="animate-photo relative mx-auto aspect-[4/5] w-full max-w-[260px] overflow-hidden sm:max-w-[300px] lg:mx-0 lg:max-h-[34rem] lg:max-w-none lg:aspect-auto lg:h-full lg:min-h-[34rem]">
+            <div className="hero-desktop-photo animate-photo relative mx-0 aspect-auto h-full min-h-[34rem] max-h-[34rem] w-full max-w-none overflow-hidden">
               <Image
                 src="/aman-singh.jpg"
                 alt="Aman Singh, Co-Founder of GradRight"
                 fill
                 priority
-                sizes="(max-width: 1024px) 300px, 380px"
+                sizes="380px"
+                className="object-cover object-[center_20%]"
+              />
+            </div>
+
+            <div className="hero-mobile-photo animate-photo relative mx-auto aspect-[4/5] w-full max-w-[280px] place-self-center overflow-hidden sm:max-w-[300px]">
+              <Image
+                src="/aman-singh.jpg"
+                alt="Aman Singh, Co-Founder of GradRight"
+                fill
+                priority
+                sizes="(max-width: 640px) 280px, 300px"
                 className="object-cover object-[center_20%]"
               />
             </div>
@@ -411,7 +424,30 @@ export default function Home() {
             <div className="flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between lg:gap-10">
               <h2 className="t-h2">Articles by Aman</h2>
 
-              <div className="flex flex-wrap items-center gap-x-5 gap-y-3 lg:max-w-[52%] lg:justify-end">
+              {/* Mobile: scrolling logos */}
+              <div className="logo-marquee lg:hidden">
+                <div className="logo-marquee-track">
+                  {[...publications, ...publications].map((pub, index) => (
+                    <div
+                      key={`${pub.name}-m-${index}`}
+                      className="logo-marquee-item"
+                      aria-hidden={index >= publications.length}
+                    >
+                      {/* eslint-disable-next-line @next/next/no-img-element */}
+                      <img
+                        src={pub.src}
+                        alt={index < publications.length ? pub.name : ""}
+                        width={pub.width}
+                        height={pub.height}
+                        className="max-h-7 w-auto max-w-[110px] object-contain"
+                      />
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              {/* Desktop: static row */}
+              <div className="hidden flex-wrap items-center gap-x-5 gap-y-3 lg:flex lg:max-w-[52%] lg:justify-end">
                 {publications.map((pub) => (
                   <div
                     key={pub.name}

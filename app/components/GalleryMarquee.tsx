@@ -30,11 +30,12 @@ export default function GalleryMarquee({ images }: { images: GalleryImage[] }) {
     let lastTime = performance.now();
     let frameId = 0;
 
+    const speed = window.innerWidth < 768 ? 0.08 : 0.4;
+
     const tick = (now: number) => {
       if (!isDragging.current && !isPaused.current) {
         const delta = now - lastTime;
-        el.scrollLeft += 0.45 * delta;
-
+        el.scrollLeft += speed * delta;
         const half = el.scrollWidth / 2;
         if (half > 0 && el.scrollLeft >= half) {
           el.scrollLeft -= half;

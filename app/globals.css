@@ -179,6 +179,37 @@ body {
   padding-block: 3rem;
 }
 
+/* Use the centered photo for every portrait viewport, even when browser zoom reports a wide CSS width. */
+.hero-layout {
+  grid-template-columns: minmax(0, 1fr);
+}
+
+.hero-layout > * {
+  min-width: 0;
+}
+
+.hero-desktop-photo {
+  display: none;
+}
+
+.hero-mobile-photo {
+  display: block;
+}
+
+@media (min-width: 1280px) and (orientation: landscape) {
+  .hero-layout {
+    grid-template-columns: minmax(0, 1.2fr) minmax(0, 0.8fr);
+  }
+
+  .hero-desktop-photo {
+    display: block;
+  }
+
+  .hero-mobile-photo {
+    display: none;
+  }
+}
+
 @media (min-width: 1024px) {
   .s-section-hero {
     padding-block: 4rem;
@@ -370,14 +401,7 @@ body {
   height: 2rem;
   flex-shrink: 0;
   align-items: center;
-  opacity: 0.7;
-  filter: grayscale(1);
-  transition: opacity 0.2s ease, filter 0.2s ease;
-}
-
-.logo-marquee-item:hover {
   opacity: 1;
-  filter: grayscale(0);
 }
 
 .gallery-marquee {
@@ -454,6 +478,13 @@ body {
 
 .gallery-marquee-item:hover img {
   transform: scale(1.04);
+}
+
+@media (max-width: 767px) {
+  .gallery-marquee {
+    mask-image: none;
+    -webkit-mask-image: none;
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {
