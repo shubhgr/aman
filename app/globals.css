@@ -517,6 +517,10 @@ body {
     gap: 1.25rem 1.5rem;
   }
 
+  .logo-marquee-item[aria-hidden="true"] {
+    display: none;
+  }
+
   .gallery-marquee-track {
     flex-wrap: wrap;
     width: 100%;
