@@ -47,9 +47,9 @@ const credentials = [
 ];
 
 const impact = [
-  { value: "₹36,000 Cr", label: "Total loans processed" },
-  { value: "300,000+", label: "Students served" },
-  { value: "100M", label: "Media impressions" },
+  { value: "50+", label: "Academic partners" },
+  { value: "35", label: "Countries with students & universities served" },
+  { value: "2,500+", label: "Indian towns & cities served" },
 ];
 
 const universities = [
