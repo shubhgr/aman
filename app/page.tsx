@@ -491,6 +491,13 @@ export default function Home() {
                     "Introducing Shri Ashish Sood - Education Minister of Delhi - to international delegates representing universities from the US, UK, and various other countries.",
                 },
                 {
+                  src: "/policymaker-5.jpg",
+                  alt: "Shri Ashish Sood, Education Minister of Delhi, with Aman Singh at ShiftED 2026",
+                  title: "Narela Education City at ShiftED 2026",
+                  caption:
+                    "Hosting Shri Ashish Sood, Education Minister, Government of Delhi, at ShiftED 2026 (India's Biggest Education Conclave) for discussions on Narela Education City",
+                },
+                {
                   src: "/policymaker-3.jpg",
                   alt: "Raju Basnet facilitating Aman Singh for Khangchendzonga Buddhist University",
                   title: "Setting Up Khangchendzonga Buddhist University",
