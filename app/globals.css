@@ -455,6 +455,10 @@ body {
   opacity: 1;
 }
 
+.media-logo {
+  filter: brightness(1.25) contrast(1.12) saturate(1.08);
+}
+
 .gallery-marquee {
   position: relative;
   overflow: hidden;

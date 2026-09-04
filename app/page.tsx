@@ -186,7 +186,7 @@ function FeaturedIn({ className = "" }: { className?: string }) {
                 alt={index < publications.length ? pub.name : ""}
                 width={pub.width}
                 height={pub.height}
-                className="max-h-7 w-auto max-w-[110px] object-contain"
+                className="media-logo max-h-7 w-auto max-w-[110px] object-contain"
               />
             </div>
           ))}
@@ -282,7 +282,7 @@ export default function Home() {
                 banks, insurers, product and services providers and media to
                 transact freely and unlock new value for each other.
               </p>
-              <p className="t-body">
+              <p className="t-body-strong">
                 In the AI-age, education will change from being &apos;by
                 design&apos; to being &apos;on demand&apos;. Learners will want
                 to learn more continually through their lives instead of pausing
@@ -294,7 +294,7 @@ export default function Home() {
                 less monopolistic - and GradRight is poised to become the global
                 infrastructure to power that new world of education.
               </p>
-              <p className="t-body">
+              <p className="t-body-strong">
                 Prior to GradRight, I served as the Founding Project Director of
                 Ashoka University, helping its set-up as one of India&apos;s
                 leading liberal arts institutions. I also contributed to the
@@ -304,7 +304,7 @@ export default function Home() {
                 Schlumberger Oilfield Services running oil and gas exploration
                 projects across Indonesia, Japan, Middle East and USA.
               </p>
-              <p className="t-body">
+              <p className="t-body-strong">
                 I am very fortunate to have had the privilege to learn at IIT
                 Delhi and ISB Hyderabad. I believe in the power of Yoga and have
                 been blessed as a disciple of Swami Niranjanananda Saraswati and
@@ -371,7 +371,7 @@ export default function Home() {
                         alt={index < publications.length ? pub.name : ""}
                         width={pub.width}
                         height={pub.height}
-                        className="max-h-7 w-auto max-w-[110px] object-contain"
+                        className="media-logo max-h-7 w-auto max-w-[110px] object-contain"
                       />
                     </div>
                   ))}
@@ -383,7 +383,7 @@ export default function Home() {
                 {publications.map((pub) => (
                   <div
                     key={pub.name}
-                    className="flex h-8 items-center justify-center opacity-70 grayscale transition-all hover:opacity-100 hover:grayscale-0"
+                    className="flex h-8 items-center justify-center"
                   >
                     {/* eslint-disable-next-line @next/next/no-img-element */}
                     <img
@@ -391,7 +391,7 @@ export default function Home() {
                       alt={pub.name}
                       width={pub.width}
                       height={pub.height}
-                      className="max-h-7 w-auto max-w-[110px] object-contain"
+                      className="media-logo max-h-7 w-auto max-w-[110px] object-contain"
                     />
                   </div>
                 ))}
