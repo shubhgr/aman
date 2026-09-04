@@ -6,28 +6,10 @@ import PolicymakerRail from "./components/PolicymakerRail";
 
 const credentials = [
   {
-    role: "B.Tech",
-    org: "IIT Delhi",
-    when: "2000",
-    marks: [{ src: "/marks/iit-delhi.png", alt: "IIT Delhi" }],
-  },
-  {
-    role: "MBA",
-    org: "Indian School of Business, Hyderabad",
-    when: "2007",
-    marks: [{ src: "/marks/isb.png", alt: "ISB" }],
-  },
-  {
     role: "Co-Founder and CEO",
     org: "GradRight Inc.",
     when: "2019 – present",
     marks: [{ src: "/marks/gradright.png", alt: "GradRight" }],
-  },
-  {
-    role: "Founding Project Director",
-    org: "Ashoka University",
-    when: "2008 – 2014",
-    marks: [{ src: "/marks/ashoka.png", alt: "Ashoka University" }],
   },
   {
     role: "Consultant",
@@ -41,10 +23,28 @@ const credentials = [
     ],
   },
   {
+    role: "Founding Project Director",
+    org: "Ashoka University",
+    when: "2008 – 2014",
+    marks: [{ src: "/marks/ashoka.png", alt: "Ashoka University" }],
+  },
+  {
+    role: "MBA",
+    org: "Indian School of Business, Hyderabad",
+    when: "2007",
+    marks: [{ src: "/marks/isb.png", alt: "ISB" }],
+  },
+  {
     role: "Field Engineer",
     org: "Schlumberger Oilfield Services",
     when: "2000 – 2003",
     marks: [{ src: "/marks/slb.svg", alt: "Schlumberger / SLB" }],
+  },
+  {
+    role: "B.Tech",
+    org: "IIT Delhi",
+    when: "2000",
+    marks: [{ src: "/marks/iit-delhi.png", alt: "IIT Delhi" }],
   },
 ];
 
