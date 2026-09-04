@@ -8,7 +8,7 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "Aman Singh | Co-Founder, GradRight",
+  title: "Aman Singh - Co-founder & CEO, GradRight",
   description:
     "Aman Singh is Co-Founder of GradRight and Founding Project Director of Ashoka University — a higher education specialist with over twenty-five years of experience.",
 };
