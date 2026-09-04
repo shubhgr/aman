@@ -1,6 +1,5 @@
 import Image from "next/image";
 import CyclingMarks from "./components/CyclingMarks";
-import EventVideoRail from "./components/EventVideoRail";
 import GradRightLogo from "./components/GradRightLogo";
 
 const credentials = [
@@ -130,13 +129,6 @@ const articles = [
   },
 ];
 
-const eventVideos = [
-  { id: "7RuUEtwWRmY", title: "Rethinking Higher Education event video 1" },
-  { id: "Ae-cAX4R32g", title: "Rethinking Higher Education event video 2" },
-  { id: "KhPlCBUAbcM", title: "Rethinking Higher Education event video 3" },
-  { id: "mpxLKIQ7MQU", title: "Rethinking Higher Education event video 4" },
-];
-
 function FeaturedIn({ className = "" }: { className?: string }) {
   const logos = [...publications, ...publications];
 
@@ -234,8 +226,8 @@ export default function Home() {
           <div className="s-container s-section grid s-split-gap lg:grid-cols-[0.9fr_1.1fr]">
             <div>
               <h2 className="t-h2">
-                25 years shaping how India builds universities, and how
-                students reach them.
+                25 years of experience in building innovative institutions in
+                India.
               </h2>
             </div>
 
@@ -405,14 +397,6 @@ export default function Home() {
               ))}
             </ul>
           </div>
-        </section>
-
-        {/* Events */}
-        <section id="events" className="border-t border-line overflow-hidden">
-          <div className="s-container s-section pb-8 lg:pb-10">
-            <h2 className="t-h2">Rethinking higher education events</h2>
-          </div>
-          <EventVideoRail videos={eventVideos} />
         </section>
 
         {/* Articles */}
