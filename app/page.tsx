@@ -113,30 +113,37 @@ const publications = [
     src: "/publications/economist.png",
     width: 125,
     height: 64,
+    // Solid red block reads heavy — keep optically smaller
+    logoClass: "h-[1.35rem] w-auto max-w-[4.75rem]",
   },
   {
     name: "India Today",
     src: "/publications/india-today.png",
     width: 145,
     height: 61,
+    logoClass: "h-[1.45rem] w-auto max-w-[5.25rem]",
   },
   {
     name: "Economic Times",
     src: "/publications/economic-times.png",
-    width: 160,
-    height: 80,
+    width: 320,
+    height: 36,
+    // Tight-cropped wide wordmark — larger to match neighbors
+    logoClass: "h-7 w-auto max-w-[11rem] sm:h-8 sm:max-w-[12.5rem]",
   },
   {
     name: "Hindustan Times",
     src: "/publications/hindustan-times.svg",
     width: 180,
     height: 24,
+    logoClass: "h-[1.35rem] w-auto max-w-[9.75rem]",
   },
   {
     name: "The Hindu",
     src: "/publications/the-hindu.svg",
     width: 180,
     height: 22,
+    logoClass: "h-[1.2rem] w-auto max-w-[8.75rem]",
   },
 ];
 
@@ -166,6 +173,27 @@ const articles = [
   },
 ];
 
+function MediaLogo({
+  pub,
+  decorative = false,
+}: {
+  pub: (typeof publications)[number];
+  decorative?: boolean;
+}) {
+  return (
+    <div className="media-logo-slot">
+      {/* eslint-disable-next-line @next/next/no-img-element */}
+      <img
+        src={pub.src}
+        alt={decorative ? "" : pub.name}
+        width={pub.width}
+        height={pub.height}
+        className={`media-logo object-contain object-center ${pub.logoClass}`}
+      />
+    </div>
+  );
+}
+
 function FeaturedIn({ className = "" }: { className?: string }) {
   const logos = [...publications, ...publications];
 
@@ -180,13 +208,9 @@ function FeaturedIn({ className = "" }: { className?: string }) {
               className="logo-marquee-item"
               aria-hidden={index >= publications.length}
             >
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img
-                src={pub.src}
-                alt={index < publications.length ? pub.name : ""}
-                width={pub.width}
-                height={pub.height}
-                className="media-logo max-h-7 w-auto max-w-[110px] object-contain"
+              <MediaLogo
+                pub={pub}
+                decorative={index >= publications.length}
               />
             </div>
           ))}
@@ -365,13 +389,9 @@ export default function Home() {
                       className="logo-marquee-item"
                       aria-hidden={index >= publications.length}
                     >
-                      {/* eslint-disable-next-line @next/next/no-img-element */}
-                      <img
-                        src={pub.src}
-                        alt={index < publications.length ? pub.name : ""}
-                        width={pub.width}
-                        height={pub.height}
-                        className="media-logo max-h-7 w-auto max-w-[110px] object-contain"
+                      <MediaLogo
+                        pub={pub}
+                        decorative={index >= publications.length}
                       />
                     </div>
                   ))}
@@ -379,21 +399,9 @@ export default function Home() {
               </div>
 
               {/* Desktop: static row */}
-              <div className="hidden flex-wrap items-center gap-x-5 gap-y-3 lg:flex lg:max-w-[52%] lg:justify-end">
+              <div className="hidden min-w-0 flex-nowrap items-center justify-end gap-x-5 lg:flex lg:max-w-[62%]">
                 {publications.map((pub) => (
-                  <div
-                    key={pub.name}
-                    className="flex h-8 items-center justify-center"
-                  >
-                    {/* eslint-disable-next-line @next/next/no-img-element */}
-                    <img
-                      src={pub.src}
-                      alt={pub.name}
-                      width={pub.width}
-                      height={pub.height}
-                      className="media-logo max-h-7 w-auto max-w-[110px] object-contain"
-                    />
-                  </div>
+                  <MediaLogo key={pub.name} pub={pub} />
                 ))}
               </div>
             </div>
