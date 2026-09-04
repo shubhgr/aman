@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { useEffect, useLayoutEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 type PolicymakerCard = {
   src: string;
@@ -11,50 +11,45 @@ type PolicymakerCard = {
 };
 
 const GAP_PX = 24;
-/** Extra fraction of a card visible so the next one peeks in. */
-const PEEK = 0.18;
+/** Extra fraction of a card so the next page peeks in. */
+const PEEK = 0.16;
 
 export default function PolicymakerRail({
   items,
 }: {
   items: PolicymakerCard[];
 }) {
-  const count = items.length;
-  const loop = count > 1;
-
   const [perView, setPerView] = useState(2);
-  const [visualIndex, setVisualIndex] = useState(loop ? count : 0);
+  const [index, setIndex] = useState(0);
   const [stepPx, setStepPx] = useState(0);
   const [cardWidthPx, setCardWidthPx] = useState(0);
   const [paused, setPaused] = useState(false);
   const [dragOffset, setDragOffset] = useState(0);
   const [isDragging, setIsDragging] = useState(false);
-  const [animate, setAnimate] = useState(true);
 
   const viewportRef = useRef<HTMLDivElement>(null);
-  const trackRef = useRef<HTMLDivElement>(null);
   const dragRef = useRef<{
     pointerId: number;
     startX: number;
     moved: boolean;
   } | null>(null);
 
+  const maxIndex = Math.max(0, items.length - perView);
   const slots = perView + PEEK;
-  const trackItems = loop ? [...items, ...items, ...items] : items;
-  const base = loop ? count : 0;
+  const pageCount = Math.ceil(items.length / perView);
+  const page = Math.floor(index / perView);
 
   useEffect(() => {
     const media = window.matchMedia("(min-width: 768px)");
     const sync = () => {
       setPerView(media.matches ? 2 : 1);
-      setAnimate(false);
-      setVisualIndex(loop ? count : 0);
+      setIndex(0);
       setDragOffset(0);
     };
     sync();
     media.addEventListener("change", sync);
     return () => media.removeEventListener("change", sync);
-  }, [count, loop]);
+  }, []);
 
   useEffect(() => {
     const viewport = viewportRef.current;
@@ -62,65 +57,42 @@ export default function PolicymakerRail({
 
     const measure = () => {
       const width = viewport.offsetWidth;
+      if (width <= 0) return;
+
       const gaps = Math.ceil(slots) - 1;
       const cardWidth = (width - GAP_PX * gaps) / slots;
       setCardWidthPx(cardWidth);
-      setStepPx(cardWidth + GAP_PX);
+      // Move by a full page (perView cards), not one card
+      setStepPx((cardWidth + GAP_PX) * perView);
+      setIndex((current) => {
+        const nextMax = Math.max(0, items.length - perView);
+        const snapped = Math.floor(current / perView) * perView;
+        return Math.min(snapped, nextMax);
+      });
     };
 
     measure();
     const observer = new ResizeObserver(measure);
     observer.observe(viewport);
     return () => observer.disconnect();
-  }, [slots]);
-
-  useLayoutEffect(() => {
-    if (animate) return;
-    const id = window.requestAnimationFrame(() => setAnimate(true));
-    return () => window.cancelAnimationFrame(id);
-  }, [animate, visualIndex]);
+  }, [perView, items.length, slots]);
 
   useEffect(() => {
-    if (!loop || paused || isDragging) return;
+    if (maxIndex <= 0 || paused || isDragging) return;
 
     const timer = window.setInterval(() => {
-      setAnimate(true);
-      setVisualIndex((current) => current + 1);
+      setIndex((current) => {
+        const next = current + perView;
+        return next > maxIndex ? 0 : next;
+      });
     }, 5200);
 
     return () => window.clearInterval(timer);
-  }, [loop, paused, isDragging]);
+  }, [maxIndex, paused, isDragging, perView]);
 
-  const normalizeIfNeeded = (next: number) => {
-    if (!loop) return next;
-    if (next >= base + count) {
-      setAnimate(false);
-      return next - count;
-    }
-    if (next < base) {
-      setAnimate(false);
-      return next + count;
-    }
-    return next;
-  };
-
-  const onTrackTransitionEnd = (event: React.TransitionEvent<HTMLDivElement>) => {
-    if (event.target !== trackRef.current || event.propertyName !== "transform") {
-      return;
-    }
-    setVisualIndex((current) => normalizeIfNeeded(current));
-  };
-
-  const shift = (delta: number) => {
-    if (!loop && count <= 1) return;
-    setAnimate(true);
-    setVisualIndex((current) => {
-      if (!loop) {
-        const max = Math.max(0, count - perView);
-        return Math.max(0, Math.min(max, current + delta));
-      }
-      return current + delta;
-    });
+  const goToPage = (nextPage: number) => {
+    const clamped = Math.max(0, Math.min(pageCount - 1, nextPage));
+    setIndex(Math.min(clamped * perView, maxIndex));
   };
 
   const finishDrag = (clientX: number) => {
@@ -129,20 +101,20 @@ export default function PolicymakerRail({
 
     const delta = clientX - drag.startX;
     const threshold = Math.max(48, stepPx * 0.18);
-    let move = 0;
+    let nextPage = page;
 
     if (Math.abs(delta) > threshold) {
-      move = delta < 0 ? 1 : -1;
+      nextPage = delta < 0 ? page + 1 : page - 1;
     }
 
     dragRef.current = null;
     setIsDragging(false);
     setDragOffset(0);
-    if (move !== 0) shift(move);
+    goToPage(nextPage);
   };
 
   const onPointerDown = (event: React.PointerEvent<HTMLDivElement>) => {
-    if ((!loop && count <= 1) || event.button !== 0) return;
+    if (pageCount <= 1 || event.button !== 0) return;
 
     dragRef.current = {
       pointerId: event.pointerId,
@@ -160,7 +132,11 @@ export default function PolicymakerRail({
 
     const delta = event.clientX - drag.startX;
     if (Math.abs(delta) > 6) drag.moved = true;
-    setDragOffset(delta);
+
+    const atStart = page === 0 && delta > 0;
+    const atEnd = page === pageCount - 1 && delta < 0;
+    const resistance = atStart || atEnd ? 0.35 : 1;
+    setDragOffset(delta * resistance);
   };
 
   const onPointerUp = (event: React.PointerEvent<HTMLDivElement>) => {
@@ -177,11 +153,10 @@ export default function PolicymakerRail({
 
   const trackStyle = {
     gap: `${GAP_PX}px`,
-    transform: `translate3d(${-visualIndex * stepPx + dragOffset}px, 0, 0)`,
-    transition:
-      animate && !isDragging
-        ? "transform 0.65s cubic-bezier(0.22, 1, 0.36, 1)"
-        : "none",
+    transform: `translate3d(${-(index / perView) * stepPx + dragOffset}px, 0, 0)`,
+    transition: isDragging
+      ? "none"
+      : "transform 0.65s cubic-bezier(0.22, 1, 0.36, 1)",
   };
 
   const cardStyle = {
@@ -213,15 +188,10 @@ export default function PolicymakerRail({
         onPointerUp={onPointerUp}
         onPointerCancel={onPointerCancel}
       >
-        <div
-          ref={trackRef}
-          className="policymaker-rail-track"
-          style={trackStyle}
-          onTransitionEnd={onTrackTransitionEnd}
-        >
-          {trackItems.map((item, itemIndex) => (
+        <div className="policymaker-rail-track" style={trackStyle}>
+          {items.map((item) => (
             <article
-              key={`${item.title}-${itemIndex}`}
+              key={item.title}
               className="policymaker-rail-card"
               style={cardStyle}
             >
@@ -242,7 +212,7 @@ export default function PolicymakerRail({
         </div>
       </div>
 
-      {loop ? (
+      {pageCount > 1 ? (
         <div
           className="event-video-controls"
           aria-label="Policymaker navigation"
@@ -251,7 +221,8 @@ export default function PolicymakerRail({
             type="button"
             className="event-video-arrow"
             aria-label="Previous policymakers"
-            onClick={() => shift(-1)}
+            disabled={page === 0}
+            onClick={() => goToPage(page - 1)}
           >
             <svg
               viewBox="0 0 24 24"
@@ -272,7 +243,8 @@ export default function PolicymakerRail({
             type="button"
             className="event-video-arrow"
             aria-label="Next policymakers"
-            onClick={() => shift(1)}
+            disabled={page === pageCount - 1}
+            onClick={() => goToPage(page + 1)}
           >
             <svg
               viewBox="0 0 24 24"

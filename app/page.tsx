@@ -497,6 +497,13 @@ export default function Home() {
                   caption:
                     "Raju Basnet (Education Minister of Bihar) facilitating Aman Singh for establishing Khangchendzonga Buddhist University.",
                 },
+                {
+                  src: "/policymaker-4.jpg",
+                  alt: "Gareth Wynn Owen and guests at the UK Pavilion at ShiftED 2026",
+                  title: "Inaugurating the UK Pavilion at ShiftED 2026",
+                  caption:
+                    "Gareth Wynn Owen, British Deputy High Commissioner to Telangana & Andhra Pradesh, graced the UK pavilion at ShiftED 2026, bringing 10+ UK universities face-to-face with students and parents.",
+                },
               ]}
             />
           </div>
