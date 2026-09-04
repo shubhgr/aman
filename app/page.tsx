@@ -425,7 +425,7 @@ export default function Home() {
         >
           <div className="s-container s-section">
             <div className="max-w-3xl">
-              <h2 className="t-h2">Building universities from the ground up</h2>
+              <h2 className="t-h2">Building academic institutions from the ground up</h2>
               <p className="t-lead s-after-title">
                 Aman was the Founding Project Director at Ashoka University when
                 it was established, leading its set-up and launch. He has since
