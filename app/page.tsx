@@ -57,19 +57,49 @@ const universities = [
     name: "Ashoka University",
     note: "Concept to Creation",
     logo: "/universities/ashoka.png",
-    logoClass: "max-h-12 w-auto max-w-[11.5rem]",
-  },
-  {
-    name: "Krea University",
-    note: "Strategic Marketing, Admissions & Governance",
-    logo: "/universities/krea.svg",
-    logoClass: "max-h-[2.35rem] w-auto max-w-[10.25rem]",
+    logoClass: "h-11 w-auto max-w-[10.5rem]",
   },
   {
     name: "Plaksha University",
     note: "GTM: Launch of their 1st program",
     logo: "/universities/plaksha.png",
-    logoClass: "max-h-12 w-auto max-w-[11.5rem]",
+    logoClass: "h-12 w-auto max-w-[11rem]",
+  },
+  {
+    name: "Krea University",
+    note: "Strategic Marketing, Admissions & Governance",
+    logo: "/universities/krea.svg",
+    logoClass: "h-9 w-auto max-w-[8.5rem]",
+  },
+  {
+    name: "SOIL School of Business Design",
+    note: "Concept to Creation",
+    logo: "/universities/soil.png",
+    logoClass: "h-11 w-auto max-w-[7.5rem]",
+  },
+  {
+    name: "Khangchendzonga Buddhist University",
+    note: "Concept to Creation",
+    logo: "/universities/kbu.png",
+    logoClass: "h-11 w-auto max-w-[7.5rem]",
+  },
+  {
+    name: "Atria University",
+    note: "Concept to Creation",
+    logo: "/universities/atria.png",
+    logoClass: "h-9 w-auto max-w-[9.5rem]",
+  },
+  {
+    name: "Indian School of Public Policy",
+    note: "Concept to Creation to Scale-up",
+    logo: "/universities/ispp.png",
+    logoClass: "h-10 w-auto max-w-[9.5rem]",
+  },
+  {
+    name: "Nav Vihara University",
+    note: "Under Development",
+    logo: "/universities/nav-vihara.png",
+    logoClass: "h-[3.5rem] w-auto max-w-[8rem]",
   },
 ];
 
@@ -384,25 +414,6 @@ export default function Home() {
           </div>
         </section>
 
-        {/* Impact */}
-        <section id="impact" className="border-t border-line">
-          <div className="s-container s-section">
-            <h2 className="t-h2 flex max-w-2xl flex-wrap items-center gap-x-2.5 gap-y-1">
-              <span>Scale built through</span>
-              <GradRightLogo className="h-[1.35em] w-auto translate-y-[0.02em]" />
-            </h2>
-
-            <dl className="s-after-header grid gap-8 sm:grid-cols-3">
-              {impact.map((item) => (
-                <div key={item.label} className="border-t border-brand pt-5">
-                  <dt className="t-meta">{item.label}</dt>
-                  <dd className="t-stat mt-3">{item.value}</dd>
-                </div>
-              ))}
-            </dl>
-          </div>
-        </section>
-
         {/* Experience */}
         <section
           id="experience"
@@ -421,13 +432,13 @@ export default function Home() {
               </p>
             </div>
 
-            <ul className="s-after-header grid s-grid-gap sm:grid-cols-3">
+            <ul className="s-after-header grid s-grid-gap sm:grid-cols-2 lg:grid-cols-4">
               {universities.map((uni) => (
                 <li
                   key={uni.name}
-                  className="flex flex-col items-center border border-dashed border-line bg-background p-5 text-center"
+                  className="flex min-w-0 flex-col items-center overflow-hidden border border-dashed border-line bg-background p-5 text-center"
                 >
-                  <div className="flex h-24 w-full items-center justify-center px-4">
+                  <div className="flex h-[5.5rem] w-full items-center justify-center px-2">
                     {/* eslint-disable-next-line @next/next/no-img-element */}
                     <img
                       src={uni.logo}
@@ -435,8 +446,10 @@ export default function Home() {
                       className={`${uni.logoClass} object-contain`}
                     />
                   </div>
-                  <p className="t-card-title s-after-media">{uni.name}</p>
-                  <p className="t-meta s-after-label whitespace-nowrap text-[0.75rem] leading-snug tracking-[-0.01em] sm:text-[0.8125rem]">
+                  <p className="t-card-title s-after-media w-full text-[0.88rem] leading-snug text-balance">
+                    {uni.name}
+                  </p>
+                  <p className="t-meta s-after-label w-full text-[0.75rem] leading-snug text-balance">
                     {uni.note}
                   </p>
                 </li>
@@ -491,6 +504,25 @@ export default function Home() {
                 </li>
               ))}
             </ul>
+          </div>
+        </section>
+
+        {/* Impact */}
+        <section id="impact" className="border-t border-line">
+          <div className="s-container s-section">
+            <h2 className="t-h2 flex max-w-2xl flex-wrap items-center gap-x-2.5 gap-y-1">
+              <span>Scale built through</span>
+              <GradRightLogo className="h-[1.35em] w-auto translate-y-[0.02em]" />
+            </h2>
+
+            <dl className="s-after-header grid gap-8 sm:grid-cols-3">
+              {impact.map((item) => (
+                <div key={item.label} className="border-t border-brand pt-5">
+                  <dt className="t-meta">{item.label}</dt>
+                  <dd className="t-stat mt-3">{item.value}</dd>
+                </div>
+              ))}
+            </dl>
           </div>
         </section>
       </main>
