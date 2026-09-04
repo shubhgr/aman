@@ -576,6 +576,7 @@ body {
 .event-video-card {
   position: relative;
   aspect-ratio: 16 / 9;
+  width: 100%;
   overflow: hidden;
   background: #121022;
 }

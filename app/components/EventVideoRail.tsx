@@ -6,6 +6,7 @@ import { useEffect, useRef, useState } from "react";
 type EventVideo = {
   id: string;
   title: string;
+  caption?: string;
 };
 
 function chunkVideos(videos: EventVideo[], size: number) {
@@ -75,6 +76,10 @@ export default function EventVideoRail({ videos }: { videos: EventVideo[] }) {
     };
   }, [activeVideo]);
 
+  const goTo = (next: number) => {
+    setPage(Math.max(0, Math.min(pageCount - 1, next)));
+  };
+
   const finishDrag = (clientX: number) => {
     const drag = dragRef.current;
     if (!drag) return;
@@ -85,7 +90,6 @@ export default function EventVideoRail({ videos }: { videos: EventVideo[] }) {
 
     if (Math.abs(delta) > threshold) {
       nextPage = delta < 0 ? page + 1 : page - 1;
-      nextPage = Math.max(0, Math.min(pageCount - 1, nextPage));
     }
 
     if (drag.moved) {
@@ -98,7 +102,7 @@ export default function EventVideoRail({ videos }: { videos: EventVideo[] }) {
     dragRef.current = null;
     setIsDragging(false);
     setDragOffset(0);
-    setPage(nextPage);
+    goTo(nextPage);
   };
 
   const onPointerDown = (event: React.PointerEvent<HTMLDivElement>) => {
@@ -150,33 +154,36 @@ export default function EventVideoRail({ videos }: { videos: EventVideo[] }) {
 
   return (
     <>
-      <div className="s-container pb-16 lg:pb-20">
+      <div
+        className="event-video-carousel s-after-header"
+        onMouseEnter={() => setPaused(true)}
+        onMouseLeave={() => {
+          if (!isDragging) setPaused(false);
+        }}
+        onFocusCapture={() => setPaused(true)}
+        onBlurCapture={(event) => {
+          if (!event.currentTarget.contains(event.relatedTarget as Node)) {
+            setPaused(false);
+          }
+        }}
+      >
         <div
-          className="event-video-carousel"
-          onMouseEnter={() => setPaused(true)}
-          onMouseLeave={() => {
-            if (!isDragging) setPaused(false);
-          }}
-          onFocusCapture={() => setPaused(true)}
-          onBlurCapture={(event) => {
-            if (!event.currentTarget.contains(event.relatedTarget as Node)) {
-              setPaused(false);
-            }
-          }}
+          ref={viewportRef}
+          className={`event-video-viewport${isDragging ? " is-dragging" : ""}`}
+          onPointerDown={onPointerDown}
+          onPointerMove={onPointerMove}
+          onPointerUp={onPointerUp}
+          onPointerCancel={onPointerCancel}
         >
-          <div
-            ref={viewportRef}
-            className={`event-video-viewport${isDragging ? " is-dragging" : ""}`}
-            onPointerDown={onPointerDown}
-            onPointerMove={onPointerMove}
-            onPointerUp={onPointerUp}
-            onPointerCancel={onPointerCancel}
-          >
-            <div className="event-video-track" style={trackStyle}>
-              {pages.map((group, pageIndex) => (
-                <div key={pageIndex} className="event-video-page">
-                  {group.map((video) => (
-                    <article key={video.id} className="event-video-card">
+          <div className="event-video-track" style={trackStyle}>
+            {pages.map((group, pageIndex) => (
+              <div key={pageIndex} className="event-video-page">
+                {group.map((video) => (
+                  <article
+                    key={video.id}
+                    className="flex min-w-0 flex-col bg-background"
+                  >
+                    <div className="event-video-card">
                       <button
                         type="button"
                         className="event-video-link"
@@ -187,7 +194,7 @@ export default function EventVideoRail({ videos }: { videos: EventVideo[] }) {
                         aria-label={`Play ${video.title}`}
                       >
                         <Image
-                          src={`https://i.ytimg.com/vi/${video.id}/maxresdefault.jpg`}
+                          src={`https://i.ytimg.com/vi/${video.id}/hqdefault.jpg`}
                           alt=""
                           fill
                           sizes="(max-width: 767px) 86vw, 50vw"
@@ -196,35 +203,66 @@ export default function EventVideoRail({ videos }: { videos: EventVideo[] }) {
                         />
                         <span className="event-video-play" aria-hidden="true" />
                       </button>
-                    </article>
-                  ))}
-                </div>
-              ))}
-            </div>
-          </div>
-
-          {pageCount > 1 ? (
-            <div className="event-video-controls">
-              <div
-                className="event-video-dots"
-                role="tablist"
-                aria-label="Event videos"
-              >
-                {pages.map((_, index) => (
-                  <button
-                    key={index}
-                    type="button"
-                    role="tab"
-                    aria-selected={index === page}
-                    aria-label={`Show videos group ${index + 1}`}
-                    className={`event-video-dot${index === page ? " is-active" : ""}`}
-                    onClick={() => setPage(index)}
-                  />
+                    </div>
+                    <p className="t-card-title s-after-media">{video.title}</p>
+                    {video.caption ? (
+                      <p className="t-meta s-after-label">{video.caption}</p>
+                    ) : null}
+                  </article>
                 ))}
               </div>
-            </div>
-          ) : null}
+            ))}
+          </div>
         </div>
+
+        {pageCount > 1 ? (
+          <div className="event-video-controls" aria-label="Video navigation">
+            <button
+              type="button"
+              className="event-video-arrow"
+              aria-label="Previous videos"
+              disabled={page === 0}
+              onClick={() => goTo(page - 1)}
+            >
+              <svg
+                viewBox="0 0 24 24"
+                aria-hidden="true"
+                className="event-video-arrow-icon"
+              >
+                <path
+                  d="M15 6 9 12l6 6"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="1.75"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                />
+              </svg>
+            </button>
+            <button
+              type="button"
+              className="event-video-arrow"
+              aria-label="Next videos"
+              disabled={page === pageCount - 1}
+              onClick={() => goTo(page + 1)}
+            >
+              <svg
+                viewBox="0 0 24 24"
+                aria-hidden="true"
+                className="event-video-arrow-icon"
+              >
+                <path
+                  d="m9 6 6 6-6 6"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="1.75"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                />
+              </svg>
+            </button>
+          </div>
+        ) : null}
       </div>
 
       {activeVideo ? (

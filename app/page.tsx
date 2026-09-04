@@ -1,5 +1,6 @@
 import Image from "next/image";
 import CyclingMarks from "./components/CyclingMarks";
+import EventVideoRail from "./components/EventVideoRail";
 import GradRightLogo from "./components/GradRightLogo";
 import PolicymakerRail from "./components/PolicymakerRail";
 
@@ -518,6 +519,35 @@ export default function Home() {
                   title: "Inaugurating the UK Pavilion at ShiftED 2026",
                   caption:
                     "Gareth Wynn Owen, British Deputy High Commissioner to Telangana & Andhra Pradesh, graced the UK pavilion at ShiftED 2026, bringing 10+ UK universities face-to-face with students and parents.",
+                },
+              ]}
+            />
+          </div>
+        </section>
+
+        {/* Conversations */}
+        <section id="conversations" className="border-t border-line">
+          <div className="s-container s-section">
+            <div className="max-w-2xl">
+              <h2 className="t-h2">In conversation</h2>
+              <p className="t-lead s-after-title">
+                Interviews and talks on GradRight, higher education financing,
+                and building the next generation of institutions.
+              </p>
+            </div>
+
+            <EventVideoRail
+              videos={[
+                {
+                  id: "DfbWjzunscU",
+                  title:
+                    "Ed-Tech Startup GradRight's Co-Founder Speaks On The Rs 50 Cr Fundraise, Expansion Plans & More",
+                  caption: "GradRight",
+                },
+                {
+                  id: "kaNVabOiyJY",
+                  title: "In conversation with Aman Singh, co-founder GradRight",
+                  caption: "The Financial Express",
                 },
               ]}
             />
