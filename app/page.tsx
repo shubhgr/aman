@@ -55,18 +55,21 @@ const impact = [
 const universities = [
   {
     name: "Ashoka University",
-    note: "Founding Project Director",
+    note: "Concept to Creation",
     logo: "/universities/ashoka.png",
+    logoClass: "max-h-12 w-auto max-w-[11.5rem]",
   },
   {
     name: "Krea University",
-    note: "Institution set-up",
+    note: "Strategic Marketing, Admissions & Governance",
     logo: "/universities/krea.svg",
+    logoClass: "max-h-[2.35rem] w-auto max-w-[10.25rem]",
   },
   {
     name: "Plaksha University",
-    note: "Institution set-up",
+    note: "GTM: Launch of their 1st program",
     logo: "/universities/plaksha.png",
+    logoClass: "max-h-12 w-auto max-w-[11.5rem]",
   },
 ];
 
@@ -188,8 +191,9 @@ export default function Home() {
                     MBA, Indian School of Business, Hyderabad.
                   </p>
                   <p>
-                    Building transparency and access across higher education for
-                    students worldwide.
+                    On a mission to make an efficient global higher-ed system
+                    that drives transparency, accountability and trust in the
+                    sector and nurtures Liberty and Equity in our societies.
                   </p>
                 </div>
               </div>
@@ -291,114 +295,6 @@ export default function Home() {
           </div>
         </section>
 
-        {/* Impact */}
-        <section id="impact" className="border-t border-line">
-          <div className="s-container s-section">
-            <h2 className="t-h2 flex max-w-2xl flex-wrap items-center gap-x-2.5 gap-y-1">
-              <span>Scale built through</span>
-              <GradRightLogo className="h-[1.35em] w-auto translate-y-[0.02em]" />
-            </h2>
-
-            <dl className="s-after-header grid gap-8 sm:grid-cols-3">
-              {impact.map((item) => (
-                <div key={item.label} className="border-t border-brand pt-5">
-                  <dt className="t-meta">{item.label}</dt>
-                  <dd className="t-stat mt-3">{item.value}</dd>
-                </div>
-              ))}
-            </dl>
-          </div>
-        </section>
-
-        {/* Experience */}
-        <section
-          id="experience"
-          className="border-t border-line bg-[color-mix(in_srgb,#121022_2.5%,#F8F7F9)]"
-        >
-          <div className="s-container s-section">
-            <div className="max-w-3xl">
-              <h2 className="t-h2">Building universities from the ground up</h2>
-              <p className="t-lead s-after-title">
-                Aman was the Founding Project Director at Ashoka University when
-                it was established, leading its set-up and launch. He has since
-                helped establish many more institutions across India, including
-                Krea University, Plaksha University, Atria University, the
-                Indian School of Public Policy, and Khangchendzonga Buddhist
-                University in Sikkim.
-              </p>
-            </div>
-
-            <ul className="s-after-header grid s-grid-gap sm:grid-cols-3">
-              {universities.map((uni) => (
-                <li
-                  key={uni.name}
-                  className="flex flex-col border border-dashed border-line bg-background p-5 text-center sm:text-left"
-                >
-                  <div className="flex h-24 items-center justify-center px-4">
-                    {/* eslint-disable-next-line @next/next/no-img-element */}
-                    <img
-                      src={uni.logo}
-                      alt={`${uni.name} logo`}
-                      className="max-h-14 w-auto max-w-full object-contain"
-                    />
-                  </div>
-                  <p className="t-card-title s-after-media">{uni.name}</p>
-                  <p className="t-meta s-after-label">{uni.note}</p>
-                </li>
-              ))}
-            </ul>
-          </div>
-        </section>
-
-        {/* Policymakers */}
-        <section id="policymakers" className="border-t border-line">
-          <div className="s-container s-section">
-            <div className="max-w-2xl">
-              <h2 className="t-h2">Working with policymakers</h2>
-              <p className="t-lead s-after-title">
-                Engaging with ministers and policymakers on higher education
-                access, financing, and reform.
-              </p>
-            </div>
-
-            <ul className="s-after-header grid gap-x-4 gap-y-10 sm:grid-cols-2 sm:gap-y-4">
-              {[
-                {
-                  src: "/mithilesh-tiwari.jpg",
-                  alt: "Mithilesh Tiwari, Education Minister of Bihar, with Aman Singh",
-                  title: "Establishing Nav Vihar University",
-                  caption:
-                    "Mithilesh Tiwari (Education Minister of Bihar) facilitating Aman Singh for establishing Nav Vihar University.",
-                },
-                {
-                  src: "/policymaker-2.jpg",
-                  alt: "Aman Singh hosting at ShiftED 2026 for Narela Education City discussions",
-                  title: "Narela Education City at ShiftED 2026",
-                  caption:
-                    "Hosting Shri Ashish Sood, Education Minister, Government of Delhi, at ShiftED 2026 (India's Biggest Education Conclave) for discussions on Narela Education City",
-                },
-              ].map((item, index) => (
-                <li
-                  key={`${item.title}-${index}`}
-                  className="flex flex-col bg-background"
-                >
-                  <div className="relative aspect-[16/10] overflow-hidden bg-[color-mix(in_srgb,#121022_4%,#F8F7F9)]">
-                    <Image
-                      src={item.src}
-                      alt={item.alt}
-                      fill
-                      sizes="(max-width: 640px) 100vw, 50vw"
-                      className="object-cover object-center transition-transform duration-700 hover:scale-[1.03]"
-                    />
-                  </div>
-                  <p className="t-card-title s-after-media">{item.title}</p>
-                  <p className="t-meta s-after-label">{item.caption}</p>
-                </li>
-              ))}
-            </ul>
-          </div>
-        </section>
-
         {/* Articles */}
         <section
           id="articles"
@@ -464,6 +360,116 @@ export default function Home() {
                     </p>
                     <p className="t-meta shrink-0">{article.publication}</p>
                   </a>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </section>
+
+        {/* Impact */}
+        <section id="impact" className="border-t border-line">
+          <div className="s-container s-section">
+            <h2 className="t-h2 flex max-w-2xl flex-wrap items-center gap-x-2.5 gap-y-1">
+              <span>Scale built through</span>
+              <GradRightLogo className="h-[1.35em] w-auto translate-y-[0.02em]" />
+            </h2>
+
+            <dl className="s-after-header grid gap-8 sm:grid-cols-3">
+              {impact.map((item) => (
+                <div key={item.label} className="border-t border-brand pt-5">
+                  <dt className="t-meta">{item.label}</dt>
+                  <dd className="t-stat mt-3">{item.value}</dd>
+                </div>
+              ))}
+            </dl>
+          </div>
+        </section>
+
+        {/* Experience */}
+        <section
+          id="experience"
+          className="border-t border-line bg-[color-mix(in_srgb,#121022_2.5%,#F8F7F9)]"
+        >
+          <div className="s-container s-section">
+            <div className="max-w-3xl">
+              <h2 className="t-h2">Building universities from the ground up</h2>
+              <p className="t-lead s-after-title">
+                Aman was the Founding Project Director at Ashoka University when
+                it was established, leading its set-up and launch. He has since
+                helped establish many more institutions across India, including
+                Krea University, Plaksha University, Atria University, the
+                Indian School of Public Policy, and Khangchendzonga Buddhist
+                University in Sikkim.
+              </p>
+            </div>
+
+            <ul className="s-after-header grid s-grid-gap sm:grid-cols-3">
+              {universities.map((uni) => (
+                <li
+                  key={uni.name}
+                  className="flex flex-col items-center border border-dashed border-line bg-background p-5 text-center"
+                >
+                  <div className="flex h-24 w-full items-center justify-center px-4">
+                    {/* eslint-disable-next-line @next/next/no-img-element */}
+                    <img
+                      src={uni.logo}
+                      alt={`${uni.name} logo`}
+                      className={`${uni.logoClass} object-contain`}
+                    />
+                  </div>
+                  <p className="t-card-title s-after-media">{uni.name}</p>
+                  <p className="t-meta s-after-label whitespace-nowrap text-[0.75rem] leading-snug tracking-[-0.01em] sm:text-[0.8125rem]">
+                    {uni.note}
+                  </p>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </section>
+
+        {/* Policymakers */}
+        <section id="policymakers" className="border-t border-line">
+          <div className="s-container s-section">
+            <div className="max-w-2xl">
+              <h2 className="t-h2">Working with policymakers</h2>
+              <p className="t-lead s-after-title">
+                Engaging with ministers and policymakers on higher education
+                access, financing, and reform.
+              </p>
+            </div>
+
+            <ul className="s-after-header grid gap-x-4 gap-y-10 sm:grid-cols-2 sm:gap-y-4">
+              {[
+                {
+                  src: "/mithilesh-tiwari.jpg",
+                  alt: "Mithilesh Tiwari, Education Minister of Bihar, with Aman Singh",
+                  title: "Establishing Nav Vihar University",
+                  caption:
+                    "Mithilesh Tiwari (Education Minister of Bihar) facilitating Aman Singh for establishing Nav Vihar University.",
+                },
+                {
+                  src: "/policymaker-2.jpg",
+                  alt: "Aman Singh hosting at ShiftED 2026 for Narela Education City discussions",
+                  title: "Narela Education City at ShiftED 2026",
+                  caption:
+                    "Hosting Shri Ashish Sood, Education Minister, Government of Delhi, at ShiftED 2026 (India's Biggest Education Conclave) for discussions on Narela Education City",
+                },
+              ].map((item, index) => (
+                <li
+                  key={`${item.title}-${index}`}
+                  className="flex flex-col bg-background"
+                >
+                  <div className="relative aspect-[16/10] overflow-hidden bg-[color-mix(in_srgb,#121022_4%,#F8F7F9)]">
+                    <Image
+                      src={item.src}
+                      alt={item.alt}
+                      fill
+                      sizes="(max-width: 640px) 100vw, 50vw"
+                      className="object-cover object-center transition-transform duration-700 hover:scale-[1.03]"
+                    />
+                  </div>
+                  <p className="t-card-title s-after-media">{item.title}</p>
+                  <p className="t-meta s-after-label">{item.caption}</p>
                 </li>
               ))}
             </ul>
