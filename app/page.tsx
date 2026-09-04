@@ -237,26 +237,44 @@ export default function Home() {
 
             <div className="s-stack">
               <p className="t-body-strong">
-                Aman is a specialist in the higher education sector with over
-                twenty five years of experience. He co-founded GradRight in 2019
-                with a vision to build a global tech-platform that brings
-                together students, universities, banks and all service providers
-                of the world to democratise access to higher education and drive
-                transparency and accountability in the sector.
+                I believe that higher education can drive social equity, justice
+                and freedom. If higher education is not efficient then it will
+                lead to the destruction of these valuable ideas that nourishes
+                our societies. A seamless flow of information, capital and
+                talent within and across countries is the foundation for
+                creating an efficient ecosystem. With GradRight, we envision a
+                tech-enabled, global higher education ecosystem that brings
+                together all participants including learners, universities,
+                banks, insurers, product and services providers and media to
+                transact freely and unlock new value for each other.
               </p>
               <p className="t-body">
-                Prior to GradRight, he was the Founding Project Director of
-                Ashoka University, where he led its set-up and launch from
-                2008-2015. Thereafter, he played a critical role in the set-up
-                of eight new institutions like Krea University, Atria
-                University, Plaksha University, Indian School of Public Policy
-                and Kanchenjunga Buddhist University in Sikkim.
+                In the AI-age, education will change from being &apos;by
+                design&apos; to being &apos;on demand&apos;. Learners will want
+                to learn more continually through their lives instead of pausing
+                after the standard school and college years. Providers will
+                expand and evolve: universities will change rapidly, companies
+                and experts will offer learning opportunities that will be as
+                credible as the ones offered by academic institutions. The
+                sector will be a more global, more accessible, less exclusive,
+                less monopolistic - and GradRight is poised to become the global
+                infrastructure to power that new world of education.
               </p>
               <p className="t-body">
-                He started his professional career as a Field Engineer with
-                Schlumberger Oilfield Services and worked in Indonesia, Japan,
-                Middle East and USA. Aman holds a BTech from IIT Delhi and MBA
-                from Indian School of Business (ISB), Hyderabad.
+                Prior to GradRight, I served as the Founding Project Director of
+                Ashoka University, helping its set-up as one of India&apos;s
+                leading liberal arts institutions. I also contributed to the
+                launch and development of Krea University, Plaksha University,
+                Khangchendzonga Buddhist University and the Indian School of
+                Public Policy. I started my career as a Field Engineer with
+                Schlumberger Oilfield Services running oil and gas exploration
+                projects across Indonesia, Japan, Middle East and USA.
+              </p>
+              <p className="t-body">
+                I am very fortunate to have had the privilege to learn at IIT
+                Delhi and ISB Hyderabad. I believe in the power of Yoga and have
+                been blessed as a disciple of Swami Niranjanananda Saraswati and
+                a life-long student of Bihar School of Yoga, Munger.
               </p>
             </div>
           </div>
