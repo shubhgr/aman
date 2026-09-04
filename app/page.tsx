@@ -1,6 +1,7 @@
 import Image from "next/image";
 import CyclingMarks from "./components/CyclingMarks";
 import GradRightLogo from "./components/GradRightLogo";
+import PolicymakerRail from "./components/PolicymakerRail";
 
 const credentials = [
   {
@@ -472,8 +473,8 @@ export default function Home() {
               </p>
             </div>
 
-            <ul className="s-after-header grid gap-x-4 gap-y-10 sm:grid-cols-2 sm:gap-y-4">
-              {[
+            <PolicymakerRail
+              items={[
                 {
                   src: "/mithilesh-tiwari.jpg",
                   alt: "Mithilesh Tiwari, Education Minister of Bihar, with Aman Singh",
@@ -483,30 +484,21 @@ export default function Home() {
                 },
                 {
                   src: "/policymaker-2.jpg",
-                  alt: "Aman Singh hosting at ShiftED 2026 for Narela Education City discussions",
-                  title: "Narela Education City at ShiftED 2026",
+                  alt: "Aman Singh introducing Shri Ashish Sood, Education Minister of Delhi, to international university delegates",
+                  title:
+                    "Education Minister of Delhi Meeting 40+ Unis at GradRight's Event",
                   caption:
-                    "Hosting Shri Ashish Sood, Education Minister, Government of Delhi, at ShiftED 2026 (India's Biggest Education Conclave) for discussions on Narela Education City",
+                    "Introducing Shri Ashish Sood - Education Minister of Delhi - to international delegates representing universities from the US, UK, and various other countries.",
                 },
-              ].map((item, index) => (
-                <li
-                  key={`${item.title}-${index}`}
-                  className="flex flex-col bg-background"
-                >
-                  <div className="relative aspect-[16/10] overflow-hidden bg-[color-mix(in_srgb,#121022_4%,#F8F7F9)]">
-                    <Image
-                      src={item.src}
-                      alt={item.alt}
-                      fill
-                      sizes="(max-width: 640px) 100vw, 50vw"
-                      className="object-cover object-center transition-transform duration-700 hover:scale-[1.03]"
-                    />
-                  </div>
-                  <p className="t-card-title s-after-media">{item.title}</p>
-                  <p className="t-meta s-after-label">{item.caption}</p>
-                </li>
-              ))}
-            </ul>
+                {
+                  src: "/policymaker-3.jpg",
+                  alt: "Raju Basnet facilitating Aman Singh for Khangchendzonga Buddhist University",
+                  title: "Setting Up Khangchendzonga Buddhist University",
+                  caption:
+                    "Raju Basnet (Education Minister of Bihar) facilitating Aman Singh for establishing Khangchendzonga Buddhist University.",
+                },
+              ]}
+            />
           </div>
         </section>
 

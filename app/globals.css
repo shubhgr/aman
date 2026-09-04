@@ -618,6 +618,7 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
+  gap: 0.75rem;
 }
 
 .event-video-dots {
@@ -641,6 +642,78 @@ body {
 .event-video-dot.is-active {
   width: 1.35rem;
   background: var(--brand);
+}
+
+.event-video-arrow {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.5rem;
+  height: 2.5rem;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: var(--background);
+  color: var(--foreground);
+  cursor: pointer;
+  transition:
+    border-color 0.2s ease,
+    background-color 0.2s ease,
+    color 0.2s ease;
+}
+
+.event-video-arrow:hover {
+  border-color: color-mix(in srgb, var(--foreground) 28%, transparent);
+  background: color-mix(in srgb, var(--foreground) 4%, var(--background));
+}
+
+.event-video-arrow:focus-visible {
+  outline: 2px solid var(--brand);
+  outline-offset: 2px;
+}
+
+.event-video-arrow-icon {
+  width: 1.15rem;
+  height: 1.15rem;
+}
+
+.event-video-arrow:disabled {
+  opacity: 0.35;
+  cursor: default;
+}
+
+.policymaker-rail {
+  display: grid;
+  gap: 1.25rem;
+}
+
+.policymaker-rail-viewport {
+  overflow: hidden;
+  touch-action: pan-y;
+  cursor: grab;
+  user-select: none;
+}
+
+.policymaker-rail-viewport.is-dragging {
+  cursor: grabbing;
+}
+
+.policymaker-rail-track {
+  display: flex;
+  width: 100%;
+  will-change: transform;
+}
+
+.policymaker-rail-card {
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  background: var(--background);
+}
+
+@media (min-width: 1024px) {
+  .policymaker-rail {
+    gap: 1.5rem;
+  }
 }
 
 @media (min-width: 768px) {
