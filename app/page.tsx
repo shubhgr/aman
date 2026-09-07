@@ -480,6 +480,13 @@ export default function Home() {
                   caption:
                     "Gareth Wynn Owen, British Deputy High Commissioner to Telangana & Andhra Pradesh, graced the UK pavilion at ShiftED 2026, bringing 10+ UK universities face-to-face with students and parents.",
                 },
+                {
+                  src: "/policymaker-6.jpg",
+                  alt: "Khwaja Iftekar Ahmed honouring Aman Singh at the Inter Faith Harmony Foundation of India",
+                  title: "Inter Faith Harmony Foundation of India",
+                  caption:
+                    "Khwaja Iftekar Ahmed honouring Aman Singh at the Inter Faith Harmony Foundation of India.",
+                },
               ]}
             />
           </div>

@@ -1,0 +1,1432 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Aman Singh - Co-founder &amp; CEO, GradRight</title>
+  <meta name="description" content="Aman Singh is Co-Founder of GradRight and Founding Project Director of Ashoka University — a higher education specialist with over twenty-five years of experience." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link rel="icon" href="https://aman-test.vercel.app/favicon.ico" />
+  <style>
+
+:root {
+  --background: #f8f7f9;
+  --foreground: #121022;
+  --brand: #782bff;
+  --brand-soft: color-mix(in srgb, #782bff 12%, #f8f7f9);
+  --brand-muted: color-mix(in srgb, #782bff 28%, #f8f7f9);
+  --line: color-mix(in srgb, #121022 10%, transparent);
+  --muted: color-mix(in srgb, #121022 62%, #f8f7f9);
+}
+
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-inter), sans-serif;
+}
+
+::selection {
+  background: color-mix(in srgb, #782bff 28%, transparent);
+  color: var(--foreground);
+}
+
+/* Type scale — keep hierarchy consistent sitewide */
+.t-display {
+  font-size: clamp(2.5rem, 5.5vw, 4rem);
+  font-weight: 600;
+  line-height: 0.98;
+  letter-spacing: -0.04em;
+  color: var(--foreground);
+}
+
+.t-h2 {
+  font-size: clamp(1.75rem, 3vw, 2.25rem);
+  font-weight: 600;
+  line-height: 1.2;
+  letter-spacing: -0.025em;
+  color: var(--foreground);
+}
+
+.t-lead {
+  font-size: 1.0625rem;
+  line-height: 1.75;
+  color: var(--muted);
+}
+
+@media (min-width: 640px) {
+  .t-lead {
+    font-size: 1.125rem;
+    line-height: 1.75;
+  }
+}
+
+.t-body {
+  font-size: 1rem;
+  line-height: 1.75;
+  color: var(--muted);
+}
+
+.t-body-strong {
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.75;
+  color: var(--foreground);
+}
+
+.t-quote {
+  font-size: 1.0625rem;
+  font-style: italic;
+  font-weight: 400;
+  line-height: 1.45;
+  letter-spacing: -0.01em;
+  color: var(--foreground);
+}
+
+@media (min-width: 640px) {
+  .t-quote {
+    font-size: 1.125rem;
+  }
+}
+
+.t-card-title {
+  font-size: 1rem;
+  font-weight: 600;
+  line-height: 1.4;
+  color: var(--foreground);
+}
+
+.t-meta {
+  font-size: 0.875rem;
+  line-height: 1.5;
+  color: var(--muted);
+}
+
+.t-meta-brand {
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--brand);
+}
+
+.about-read-more {
+  align-self: start;
+  margin-top: 0.15rem;
+  border: 0;
+  padding: 0;
+  background: none;
+  color: var(--brand);
+  font: inherit;
+  font-size: 1rem;
+  font-weight: 600;
+  line-height: 1.5;
+  cursor: pointer;
+  text-decoration: underline;
+  text-underline-offset: 0.18em;
+  text-decoration-thickness: 1px;
+}
+
+.about-read-more:hover {
+  color: color-mix(in srgb, var(--brand) 82%, var(--foreground));
+}
+
+.about-read-more:focus-visible {
+  outline: 2px solid var(--brand);
+  outline-offset: 3px;
+}
+
+.t-stat {
+  font-size: clamp(1.875rem, 3vw, 2.25rem);
+  font-weight: 600;
+  letter-spacing: -0.025em;
+  line-height: 1.1;
+  color: var(--foreground);
+}
+
+.t-link {
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--foreground);
+  transition: color 0.15s ease;
+}
+
+.t-link:hover {
+  color: var(--brand);
+}
+
+/* Spacing scale — keep padding/gaps consistent sitewide */
+.s-container {
+  width: 100%;
+  max-width: 72rem;
+  margin-inline: auto;
+  padding-inline: 1.5rem;
+}
+
+@media (min-width: 640px) {
+  .s-container {
+    padding-inline: 2rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .s-container {
+    padding-inline: 2.5rem;
+  }
+}
+
+.s-section {
+  padding-block: 4rem;
+}
+
+@media (min-width: 1024px) {
+  .s-section {
+    padding-block: 5rem;
+  }
+}
+
+.s-section-hero {
+  padding-block: 3rem;
+}
+
+/* Use the centered photo for every portrait viewport, even when browser zoom reports a wide CSS width. */
+.hero-layout {
+  grid-template-columns: minmax(0, 1fr);
+}
+
+.hero-layout > * {
+  min-width: 0;
+}
+
+.hero-desktop-photo {
+  display: none;
+}
+
+.hero-mobile-photo {
+  display: block;
+}
+
+@media (min-width: 1280px) and (orientation: landscape) {
+  .hero-layout {
+    grid-template-columns: minmax(0, 1.2fr) minmax(0, 0.8fr);
+  }
+
+  .hero-desktop-photo {
+    display: block;
+  }
+
+  .hero-mobile-photo {
+    display: none;
+  }
+}
+
+@media (min-width: 1024px) {
+  .s-section-hero {
+    padding-block: 4rem;
+  }
+}
+
+.s-section-footer {
+  padding-block: 2rem;
+}
+
+.brand-footer {
+  /* Desktop art: 1024 × 355 */
+  aspect-ratio: 1024 / 355;
+  min-height: 12rem;
+}
+
+.brand-footer-bg {
+  object-fit: cover;
+  object-position: top center;
+}
+
+.brand-footer-bg-mobile {
+  display: none;
+}
+
+@media (max-width: 767px) {
+  .brand-footer {
+    /* Mobile art: 402 × 350 — keep pale top visible */
+    aspect-ratio: 402 / 350;
+    min-height: 18rem;
+  }
+
+  .brand-footer-bg-desktop {
+    display: none;
+  }
+
+  .brand-footer-bg-mobile {
+    display: block;
+    inset: 0 !important;
+    width: 100% !important;
+    height: 100% !important;
+    max-width: none !important;
+    object-fit: cover;
+    object-position: top center;
+  }
+}
+
+@media (min-width: 768px) {
+  .brand-footer {
+    min-height: clamp(14rem, 24vw, 20rem);
+  }
+
+  .brand-footer-bg-desktop {
+    inset: 0 !important;
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover;
+    object-position: top center;
+  }
+}
+
+.s-after-title {
+  margin-top: 1.25rem;
+}
+
+.s-after-header {
+  margin-top: 3rem;
+}
+
+.s-stack {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.s-grid-gap {
+  gap: 1rem;
+}
+
+.s-split-gap {
+  gap: 2.5rem;
+}
+
+@media (min-width: 1024px) {
+  .s-split-gap {
+    gap: 3.5rem;
+  }
+}
+
+.s-row {
+  padding-block: 1.25rem;
+}
+
+.s-after-media {
+  margin-top: 1rem;
+}
+
+.s-after-label {
+  margin-top: 0.25rem;
+}
+
+.hero-wash {
+  background:
+    radial-gradient(ellipse 80% 60% at 12% 18%, color-mix(in srgb, #782bff 10%, transparent), transparent 55%),
+    radial-gradient(ellipse 70% 50% at 80% 90%, color-mix(in srgb, #121022 5%, transparent), transparent 50%),
+    linear-gradient(160deg, #f3f1f6 0%, #f8f7f9 42%, #f1eff5 100%);
+}
+
+@keyframes rise {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes draw-line {
+  from {
+    transform: scaleX(0);
+  }
+  to {
+    transform: scaleX(1);
+  }
+}
+
+@keyframes photo-in {
+  from {
+    opacity: 0;
+    transform: scale(1.06);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes drift {
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0);
+  }
+  50% {
+    transform: translate3d(1.5%, -1%, 0);
+  }
+}
+
+@keyframes scroll-cue {
+  0%,
+  100% {
+    transform: translateY(0);
+    opacity: 0.45;
+  }
+  50% {
+    transform: translateY(6px);
+    opacity: 1;
+  }
+}
+
+.animate-rise {
+  animation: rise 0.9s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.animate-rise-delay-1 {
+  animation: rise 0.9s cubic-bezier(0.22, 1, 0.36, 1) 0.12s both;
+}
+
+.animate-rise-delay-2 {
+  animation: rise 0.9s cubic-bezier(0.22, 1, 0.36, 1) 0.24s both;
+}
+
+.animate-rise-delay-3 {
+  animation: rise 0.9s cubic-bezier(0.22, 1, 0.36, 1) 0.36s both;
+}
+
+.animate-draw {
+  transform-origin: left center;
+  animation: draw-line 1.1s cubic-bezier(0.22, 1, 0.36, 1) 0.45s both;
+}
+
+.animate-photo {
+  animation: photo-in 1.35s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.animate-drift {
+  animation: drift 18s ease-in-out infinite;
+}
+
+.animate-scroll-cue {
+  animation: scroll-cue 2.2s ease-in-out infinite;
+}
+
+@keyframes fadeMark {
+  from {
+    opacity: 0;
+    transform: translateY(4px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+.logo-marquee {
+  overflow: hidden;
+  mask-image: linear-gradient(
+    to right,
+    transparent,
+    #000 8%,
+    #000 92%,
+    transparent
+  );
+}
+
+.logo-marquee-track {
+  display: flex;
+  width: max-content;
+  gap: 2.75rem;
+  align-items: center;
+  animation: marquee 28s linear infinite;
+}
+
+.logo-marquee-track:hover {
+  animation-play-state: paused;
+}
+
+.media-logo-slot {
+  display: flex;
+  height: 2.5rem;
+  align-items: center;
+  justify-content: center;
+}
+
+.logo-marquee-item {
+  display: flex;
+  height: 2.5rem;
+  flex-shrink: 0;
+  align-items: center;
+  opacity: 1;
+}
+
+.media-logo {
+  display: block;
+}
+
+.gallery-marquee {
+  position: relative;
+  overflow: hidden;
+  mask-image: linear-gradient(
+    to right,
+    transparent 0%,
+    rgba(0, 0, 0, 0.15) 4%,
+    rgba(0, 0, 0, 0.55) 10%,
+    #000 18%,
+    #000 82%,
+    rgba(0, 0, 0, 0.55) 90%,
+    rgba(0, 0, 0, 0.15) 96%,
+    transparent 100%
+  );
+  -webkit-mask-image: linear-gradient(
+    to right,
+    transparent 0%,
+    rgba(0, 0, 0, 0.15) 4%,
+    rgba(0, 0, 0, 0.55) 10%,
+    #000 18%,
+    #000 82%,
+    rgba(0, 0, 0, 0.55) 90%,
+    rgba(0, 0, 0, 0.15) 96%,
+    transparent 100%
+  );
+}
+
+.gallery-marquee-scroll {
+  overflow-x: auto;
+  overflow-y: hidden;
+  cursor: grab;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+  touch-action: none;
+}
+
+.gallery-marquee-scroll::-webkit-scrollbar {
+  display: none;
+}
+
+.gallery-marquee-scroll.is-grabbing {
+  cursor: grabbing;
+  user-select: none;
+}
+
+.gallery-marquee-scroll.is-grabbing .gallery-marquee-item img {
+  pointer-events: none;
+}
+
+.gallery-marquee-track {
+  display: flex;
+  width: max-content;
+  gap: 1.5rem;
+  align-items: stretch;
+}
+
+.gallery-marquee-item {
+  position: relative;
+  flex-shrink: 0;
+  width: min(88vw, 36rem);
+  aspect-ratio: 16 / 10;
+  overflow: hidden;
+  background: color-mix(in srgb, #121022 4%, #f8f7f9);
+}
+
+.gallery-marquee-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.gallery-marquee-item:hover img {
+  transform: scale(1.04);
+}
+
+.event-video-carousel {
+  display: grid;
+  gap: 1.25rem;
+}
+
+.event-video-viewport {
+  overflow: hidden;
+  touch-action: pan-y;
+  cursor: grab;
+  user-select: none;
+}
+
+.event-video-viewport.is-dragging {
+  cursor: grabbing;
+}
+
+.event-video-track {
+  display: flex;
+  width: 100%;
+  will-change: transform;
+}
+
+.event-video-page {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 1.25rem;
+  width: 100%;
+  flex: 0 0 100%;
+  min-width: 0;
+}
+
+.event-video-card {
+  position: relative;
+  aspect-ratio: 16 / 9;
+  width: 100%;
+  overflow: hidden;
+  background: #121022;
+}
+
+.event-video-link {
+  position: absolute;
+  inset: 0;
+  display: block;
+  width: 100%;
+  padding: 0;
+  border: 0;
+  background: none;
+  cursor: pointer;
+}
+
+.event-video-link img {
+  width: 100%;
+  height: 100%;
+  transition: transform 0.45s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.event-video-link:hover img {
+  transform: scale(1.04);
+}
+
+.event-video-play {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 3.25rem;
+  height: 2.25rem;
+  transform: translate(-50%, -50%);
+  border-radius: 0.55rem;
+  background: #ff0033;
+  box-shadow: 0 0.5rem 1.5rem rgb(18 16 34 / 24%);
+}
+
+.event-video-play::after {
+  position: absolute;
+  top: 50%;
+  left: 54%;
+  width: 0;
+  height: 0;
+  transform: translate(-50%, -50%);
+  border-block: 0.42rem solid transparent;
+  border-left: 0.62rem solid #fff;
+  content: "";
+}
+
+.event-video-controls {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+}
+
+.event-video-dots {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.event-video-dot {
+  width: 0.45rem;
+  height: 0.45rem;
+  border: 0;
+  border-radius: 999px;
+  background: color-mix(in srgb, var(--foreground) 18%, transparent);
+  cursor: pointer;
+  transition:
+    width 0.25s ease,
+    background-color 0.25s ease;
+}
+
+.event-video-dot.is-active {
+  width: 1.35rem;
+  background: var(--brand);
+}
+
+.event-video-arrow {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.5rem;
+  height: 2.5rem;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: var(--background);
+  color: var(--foreground);
+  cursor: pointer;
+  transition:
+    border-color 0.2s ease,
+    background-color 0.2s ease,
+    color 0.2s ease;
+}
+
+.event-video-arrow:hover {
+  border-color: color-mix(in srgb, var(--foreground) 28%, transparent);
+  background: color-mix(in srgb, var(--foreground) 4%, var(--background));
+}
+
+.event-video-arrow:focus-visible {
+  outline: 2px solid var(--brand);
+  outline-offset: 2px;
+}
+
+.event-video-arrow-icon {
+  width: 1.15rem;
+  height: 1.15rem;
+}
+
+.event-video-arrow:disabled {
+  opacity: 0.35;
+  cursor: default;
+}
+
+.policymaker-rail {
+  display: grid;
+  gap: 1.25rem;
+}
+
+.policymaker-rail-viewport {
+  overflow: hidden;
+  touch-action: pan-y;
+  cursor: grab;
+  user-select: none;
+}
+
+.policymaker-rail-viewport.is-dragging {
+  cursor: grabbing;
+}
+
+.policymaker-rail-track {
+  display: flex;
+  width: 100%;
+  will-change: transform;
+}
+
+.policymaker-rail-card {
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  background: var(--background);
+}
+
+@media (min-width: 1024px) {
+  .policymaker-rail {
+    gap: 1.5rem;
+  }
+}
+
+@media (min-width: 768px) {
+  .event-video-page {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1.5rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .event-video-carousel {
+    gap: 1.5rem;
+  }
+
+  .event-video-play {
+    width: 3.75rem;
+    height: 2.5rem;
+  }
+
+  .event-video-play::after {
+    border-block: 0.48rem solid transparent;
+    border-left: 0.72rem solid #fff;
+  }
+}
+
+.event-video-modal {
+  position: fixed;
+  z-index: 50;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  padding: 1.5rem;
+}
+
+.event-video-modal[hidden] {
+  display: none !important;
+}
+
+.event-video-modal-backdrop {
+  position: absolute;
+  inset: 0;
+  border: 0;
+  background: rgb(18 16 34 / 82%);
+  cursor: default;
+}
+
+.event-video-modal-panel {
+  position: relative;
+  z-index: 1;
+  width: min(100%, 70rem);
+  aspect-ratio: 16 / 9;
+  background: #121022;
+  box-shadow: 0 1.5rem 4rem rgb(18 16 34 / 38%);
+}
+
+.event-video-modal-panel iframe {
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+.event-video-modal-close {
+  position: absolute;
+  z-index: 1;
+  top: -2.75rem;
+  right: 0;
+  border: 1px solid rgb(248 247 249 / 45%);
+  border-radius: 999px;
+  padding: 0.55rem 0.9rem;
+  background: #121022;
+  color: #f8f7f9;
+  font-size: 0.8125rem;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+@media (max-width: 767px) {
+  .gallery-marquee {
+    mask-image: none;
+    -webkit-mask-image: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  .animate-rise,
+  .animate-rise-delay-1,
+  .animate-rise-delay-2,
+  .animate-rise-delay-3,
+  .animate-draw,
+  .animate-photo,
+  .animate-drift,
+  .animate-scroll-cue,
+  .logo-marquee-track,
+  .gallery-marquee-scroll {
+    animation: none;
+  }
+
+  .logo-marquee,
+  .gallery-marquee {
+    mask-image: none;
+    -webkit-mask-image: none;
+  }
+
+  .logo-marquee-track {
+    flex-wrap: wrap;
+    width: 100%;
+    gap: 1.25rem 1.5rem;
+  }
+
+  .logo-marquee-item[aria-hidden="true"] {
+    display: none;
+  }
+
+  .gallery-marquee-track {
+    flex-wrap: wrap;
+    width: 100%;
+    justify-content: center;
+  }
+}
+
+/* Minimal layout utilities (replaces Tailwind used on the page) */
+img { max-width: 100%; height: auto; }
+a { color: inherit; text-decoration: none; }
+button { font: inherit; }
+ul, dl { list-style: none; margin: 0; padding: 0; }
+p, h1, h2 { margin: 0; }
+.page { position: relative; display: flex; min-height: 100%; flex-direction: column; overflow-x: hidden; background: var(--background); }
+.main { flex: 1; }
+.relative { position: relative; }
+.absolute { position: absolute; }
+.inset-0 { inset: 0; }
+.z-10 { z-index: 10; }
+.-z-10 { z-index: -10; }
+.isolate { isolation: isolate; }
+.overflow-hidden { overflow: hidden; }
+.flex { display: flex; }
+.hidden { display: none; }
+.grid { display: grid; }
+.min-h-full { min-height: 100%; }
+.h-full { height: 100%; }
+.min-h-0 { min-height: 0; }
+.min-w-0 { min-width: 0; }
+.w-full { width: 100%; }
+.max-w-md { max-width: 28rem; }
+.max-w-2xl { max-width: 42rem; }
+.max-w-3xl { max-width: 48rem; }
+.max-w-full { max-width: 100%; }
+.flex-1 { flex: 1 1 0%; }
+.flex-col { flex-direction: column; }
+.flex-wrap { flex-wrap: wrap; }
+.flex-nowrap { flex-wrap: nowrap; }
+.items-center { align-items: center; }
+.items-start { align-items: flex-start; }
+.items-baseline { align-items: baseline; }
+.items-stretch { align-items: stretch; }
+.items-end { align-items: flex-end; }
+.justify-center { justify-content: center; }
+.justify-between { justify-content: space-between; }
+.justify-end { justify-content: flex-end; }
+.gap-1 { gap: 0.25rem; }
+.gap-3 { gap: 0.75rem; }
+.gap-4 { gap: 1rem; }
+.gap-6 { gap: 1.5rem; }
+.gap-8 { gap: 2rem; }
+.gap-x-2\.5 { column-gap: 0.625rem; }
+.gap-y-1 { row-gap: 0.25rem; }
+.gap-x-5 { column-gap: 1.25rem; }
+.shrink-0 { flex-shrink: 0; }
+.border-t { border-top: 1px solid var(--line); }
+.border-b { border-bottom: 1px solid var(--line); }
+.border-line { border-color: var(--line); }
+.border-brand { border-color: var(--brand); }
+.border-dashed { border-style: dashed; border-width: 1px; }
+.bg-background { background: var(--background); }
+.bg-exp { background: color-mix(in srgb, #121022 2.5%, #F8F7F9); }
+.text-muted { color: var(--muted); }
+.text-balance { text-wrap: balance; }
+.leading-snug { line-height: 1.375; }
+.leading-relaxed { line-height: 1.625; }
+.mt-0\.5 { margin-top: 0.125rem; }
+.mt-3 { margin-top: 0.75rem; }
+.mt-4 { margin-top: 1rem; }
+.mt-7 { margin-top: 1.75rem; }
+.pb-16 { padding-bottom: 4rem; }
+.pt-5 { padding-top: 1.25rem; }
+.p-5 { padding: 1.25rem; }
+.px-2 { padding-inline: 0.5rem; }
+.space-y-4 > * + * { margin-top: 1rem; }
+.divide-y > * + * { border-top: 1px solid var(--line); }
+.h-px { height: 1px; }
+.w-14 { width: 3.5rem; }
+.origin-left { transform-origin: left center; }
+.bg-brand-line { background: color-mix(in srgb, var(--brand) 70%, transparent); }
+.h-8 { height: 2rem; }
+.w-8 { width: 2rem; }
+.h-9 { height: 2.25rem; }
+.w-auto { width: auto; }
+.object-contain { object-fit: contain; }
+.object-cover { object-fit: cover; }
+.object-left { object-position: left center; }
+.object-center-20 { object-position: center 20%; }
+.mx-auto { margin-inline: auto; }
+.place-self-center { place-self: center; }
+.aspect-4-5 { aspect-ratio: 4 / 5; }
+.max-w-280 { max-width: 280px; }
+.min-h-34 { min-height: 34rem; }
+.max-h-34 { max-height: 34rem; }
+.uni-logo-box { display: flex; height: 5.5rem; width: 100%; align-items: center; justify-content: center; padding-inline: 0.5rem; }
+.uni-card { display: flex; min-width: 0; flex-direction: column; align-items: center; overflow: hidden; border: 1px dashed var(--line); background: var(--background); padding: 1.25rem; text-align: center; }
+.text-sm-title { font-size: 0.88rem; }
+.text-xs-meta { font-size: 0.75rem; }
+.logo-h-11 { height: 2.75rem; width: auto; max-width: 10.5rem; }
+.logo-h-12 { height: 3rem; width: auto; max-width: 11rem; }
+.logo-h-9 { height: 2.25rem; width: auto; max-width: 8.5rem; }
+.logo-h-11b { height: 2.75rem; width: auto; max-width: 7.5rem; }
+.logo-h-9b { height: 2.25rem; width: auto; max-width: 9.5rem; }
+.logo-h-10 { height: 2.5rem; width: auto; max-width: 9.5rem; }
+.logo-h-nv { height: 3.5rem; width: auto; max-width: 8rem; }
+.media-economist { height: 1.35rem; width: auto; max-width: 4.75rem; }
+.media-india { height: 1.45rem; width: auto; max-width: 5.25rem; }
+.media-et { height: 1.75rem; width: auto; max-width: 11rem; }
+.media-ht { height: 1.35rem; width: auto; max-width: 9.75rem; }
+.media-hindu { height: 1.2rem; width: auto; max-width: 8.75rem; }
+.hero-copy { max-width: 28rem; font-size: 1.05rem; line-height: 1.625; color: var(--muted); }
+.gradright-inline { height: 1.35em; width: auto; transform: translateY(0.02em); }
+.footer-logo { position: relative; z-index: 10; height: auto; width: 62vw; max-width: 38rem; transform: translateY(1rem); }
+.brand-footer-bg { position: absolute; inset: 0; width: 100%; height: 100%; }
+.article-link:hover .t-card-title { color: var(--brand); }
+.mark-marquee { position: relative; height: 2rem; width: 2rem; flex-shrink: 0; overflow: hidden; }
+.mark-marquee-track { display: flex; flex-direction: column; width: 100%; animation: markCycle 8s linear infinite; }
+.mark-marquee-item { display: flex; height: 2rem; width: 2rem; flex-shrink: 0; align-items: center; justify-content: center; }
+@keyframes markCycle {
+  0%, 20% { transform: translateY(0); }
+  25%, 45% { transform: translateY(-2rem); }
+  50%, 70% { transform: translateY(-4rem); }
+  75%, 95% { transform: translateY(-6rem); }
+  100% { transform: translateY(-8rem); }
+}
+.about-more[hidden] { display: none !important; }
+.pm-card-media { position: relative; aspect-ratio: 16 / 10; overflow: hidden; background: color-mix(in srgb, #121022 4%, #F8F7F9); }
+.pm-card-media img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center; }
+.event-video-card img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+@media (min-width: 640px) {
+  .hero-copy { font-size: 1.125rem; line-height: 2rem; }
+  .sm-grid-2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .sm-grid-3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .sm-odd-pr-8:nth-child(odd) { padding-right: 2rem; }
+  .sm-even-pl-8:nth-child(even) { padding-left: 2rem; }
+  .sm-flex-row { flex-direction: row; }
+  .sm-items-baseline { align-items: baseline; }
+  .sm-justify-between { justify-content: space-between; }
+  .sm-gap-10 { gap: 2.5rem; }
+  .sm-text-title { font-size: 1.0625rem; }
+  .media-et { height: 2rem; max-width: 12.5rem; }
+  .max-w-300 { max-width: 300px; }
+  .pb-lg-20 { }
+  .footer-logo { width: 42vw; transform: translateY(2rem); }
+}
+@media (min-width: 1024px) {
+  .lg-grid-about { grid-template-columns: 0.9fr 1.1fr; }
+  .lg-grid-4 { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+  .lg-flex { display: flex; }
+  .lg-hidden { display: none; }
+  .lg-items-end { align-items: flex-end; }
+  .lg-justify-between { justify-content: space-between; }
+  .lg-gap-10 { gap: 2.5rem; }
+  .lg-max-w-62 { max-width: 62%; }
+  .pb-16 { padding-bottom: 5rem; }
+  .footer-logo { width: 34vw; }
+}
+@media (min-width: 1280px) {
+  .xl-max-w-xl { max-width: 36rem; }
+}
+
+body { font-family: Inter, system-ui, sans-serif; }
+  </style>
+</head>
+<body>
+<div class="page">
+  <main id="top" class="main">
+
+    <!-- Hero -->
+    <section class="relative overflow-hidden border-b border-line">
+      <div class="absolute inset-0 hero-wash"></div>
+      <div class="hero-layout s-container s-section-hero relative grid items-stretch s-split-gap">
+        <div class="relative z-10 flex h-full min-h-0 min-w-0 flex-col gap-8">
+          <div class="animate-rise">
+            <img src="https://aman-test.vercel.app/gradright-logo.png" alt="GradRight" width="210" height="48" class="h-8 w-auto object-contain object-left" style="height:2.25rem;width:auto" />
+          </div>
+          <div class="flex flex-1 flex-col justify-center">
+            <h1 class="t-display animate-rise-delay-1">Aman Singh</h1>
+            <div class="animate-draw mt-4 h-px w-14 origin-left bg-brand-line"></div>
+            <div class="animate-rise-delay-2 mt-7 hero-copy space-y-4">
+              <p>Co-Founder, CEO of GradRight.</p>
+              <p>B.Tech, IIT Delhi.<br />MBA, Indian School of Business, Hyderabad.</p>
+              <p>On a mission to make an efficient global higher-ed system that drives transparency, accountability and trust in the sector and nurtures Liberty and Equity in our societies.</p>
+            </div>
+          </div>
+          <div class="animate-rise-delay-3 w-full max-w-full xl-max-w-xl">
+            <p class="t-meta-brand">Featured in</p>
+            <div class="logo-marquee mt-4">
+              <div class="logo-marquee-track" id="featured-marquee"></div>
+            </div>
+          </div>
+        </div>
+        <div class="hero-desktop-photo animate-photo relative mx-0 min-h-34 max-h-34 w-full overflow-hidden">
+          <img src="https://aman-test.vercel.app/aman-singh.jpg" alt="Aman Singh, Co-Founder of GradRight" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 20%" />
+        </div>
+        <div class="hero-mobile-photo animate-photo relative mx-auto aspect-4-5 w-full max-w-280 place-self-center overflow-hidden">
+          <img src="https://aman-test.vercel.app/aman-singh.jpg" alt="Aman Singh, Co-Founder of GradRight" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 20%" />
+        </div>
+      </div>
+    </section>
+
+    <!-- About -->
+    <section id="about" class="border-t border-line bg-background">
+      <div class="s-container s-section grid s-split-gap lg-grid-about">
+        <div>
+          <h2 class="t-h2">25 years of experience in building innovative institutions in India.</h2>
+        </div>
+        <div class="s-stack">
+          <p class="t-body-strong">I believe that higher education can drive social equity, justice and freedom. If higher education is not efficient then it will lead to the destruction of these valuable ideas that nourishes our societies. A seamless flow of information, capital and talent within and across countries is the foundation for creating an efficient ecosystem. With GradRight, we envision a tech-enabled, global higher education ecosystem that brings together all participants including learners, universities, banks, insurers, product and services providers and media to transact freely and unlock new value for each other.</p>
+          <div class="about-more s-stack" id="about-more" hidden>
+            <p class="t-body-strong">In the AI-age, education will change from being 'by design' to being 'on demand'. Learners will want to learn more continually through their lives instead of pausing after the standard school and college years. Providers will expand and evolve: universities will change rapidly, companies and experts will offer learning opportunities that will be as credible as the ones offered by academic institutions. The sector will be a more global, more accessible, less exclusive, less monopolistic - and GradRight is poised to become the global infrastructure to power that new world of education.</p>
+            <p class="t-body-strong">Prior to GradRight, I served as the Founding Project Director of Ashoka University, helping its set-up as one of India's leading liberal arts institutions. I also contributed to the launch and development of Krea University, Plaksha University, Khangchendzonga Buddhist University and the Indian School of Public Policy. I started my career as a Field Engineer with Schlumberger Oilfield Services running oil and gas exploration projects across Indonesia, Japan, Middle East and USA.</p>
+            <p class="t-body-strong">I am very fortunate to have had the privilege to learn at IIT Delhi and ISB Hyderabad. I believe in the power of Yoga and have been blessed as a disciple of Swami Niranjanananda Saraswati and a life-long student of Bihar School of Yoga, Munger.</p>
+          </div>
+          <button type="button" class="about-read-more" id="about-toggle" aria-expanded="false">Read more</button>
+        </div>
+      </div>
+      <div class="s-container pb-16">
+        <ul class="grid gap-0 border-t border-line sm-grid-2" id="credentials"></ul>
+      </div>
+    </section>
+
+    <!-- Articles -->
+    <section id="articles" class="border-t border-line bg-background">
+      <div class="s-container s-section">
+        <div class="flex flex-col gap-6 lg-flex lg-items-end lg-justify-between lg-gap-10">
+          <h2 class="t-h2">Articles by Aman</h2>
+          <div class="logo-marquee lg-hidden">
+            <div class="logo-marquee-track" id="articles-marquee"></div>
+          </div>
+          <div class="hidden min-w-0 flex-nowrap items-center justify-end gap-x-5 lg-flex lg-max-w-62" id="articles-logos"></div>
+        </div>
+        <ul class="s-after-header divide-y border-t border-line" id="articles-list"></ul>
+      </div>
+    </section>
+
+    <!-- Experience -->
+    <section id="experience" class="border-t border-line bg-exp">
+      <div class="s-container s-section">
+        <div class="max-w-3xl">
+          <h2 class="t-h2">Building academic institutions from the ground up</h2>
+          <p class="t-lead s-after-title">Aman was the Founding Project Director at Ashoka University when it was established, leading its set-up and launch. He has since helped establish many more institutions across India, including Krea University, Plaksha University, Atria University, the Indian School of Public Policy, and Khangchendzonga Buddhist University in Sikkim.</p>
+        </div>
+        <ul class="s-after-header grid s-grid-gap sm-grid-2 lg-grid-4" id="universities"></ul>
+      </div>
+    </section>
+
+    <!-- Policymakers -->
+    <section id="policymakers" class="border-t border-line">
+      <div class="s-container s-section">
+        <div class="max-w-2xl">
+          <h2 class="t-h2">Working with policymakers</h2>
+          <p class="t-lead s-after-title">Engaging with ministers and policymakers on higher education access, financing, and reform.</p>
+        </div>
+        <div class="policymaker-rail s-after-header" id="policymaker-rail">
+          <div class="policymaker-rail-viewport" id="pm-viewport">
+            <div class="policymaker-rail-track" id="pm-track"></div>
+          </div>
+          <div class="event-video-controls" id="pm-controls" hidden>
+            <button type="button" class="event-video-arrow" id="pm-prev" aria-label="Previous policymakers">
+              <svg viewBox="0 0 24 24" class="event-video-arrow-icon" aria-hidden="true"><path d="M15 6 9 12l6 6" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </button>
+            <button type="button" class="event-video-arrow" id="pm-next" aria-label="Next policymakers">
+              <svg viewBox="0 0 24 24" class="event-video-arrow-icon" aria-hidden="true"><path d="m9 6 6 6-6 6" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Conversations -->
+    <section id="conversations" class="border-t border-line">
+      <div class="s-container s-section">
+        <div class="max-w-2xl">
+          <h2 class="t-h2">In conversation</h2>
+          <p class="t-lead s-after-title">Interviews and talks on GradRight, higher education financing, and building the next generation of institutions.</p>
+        </div>
+        <div class="event-video-carousel s-after-header" id="video-rail">
+          <div class="event-video-viewport">
+            <div class="event-video-track">
+              <div class="event-video-page" id="video-page"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Impact -->
+    <section id="impact" class="border-t border-line">
+      <div class="s-container s-section">
+        <h2 class="t-h2 flex max-w-2xl flex-wrap items-center gap-x-2.5 gap-y-1">
+          <span>Scale built through</span>
+          <img src="https://aman-test.vercel.app/gradright-logo.png" alt="GradRight" class="gradright-inline object-contain object-left" />
+        </h2>
+        <dl class="s-after-header grid gap-8 sm-grid-3" id="impact"></dl>
+      </div>
+    </section>
+  </main>
+
+  <footer class="brand-footer relative isolate flex items-center justify-center overflow-hidden">
+    <img src="https://aman-test.vercel.app/footer/gradright-footer-desktop.jpg" alt="" class="brand-footer-bg brand-footer-bg-desktop -z-10" />
+    <img src="https://aman-test.vercel.app/footer/gradright-footer-mobile.png" alt="" class="brand-footer-bg brand-footer-bg-mobile -z-10" />
+    <img src="https://aman-test.vercel.app/footer/gradright-logo-white.png" alt="GradRight" class="footer-logo" width="1794" height="400" />
+  </footer>
+</div>
+
+<!-- Video modal -->
+<div class="event-video-modal" id="video-modal" hidden>
+  <button type="button" class="event-video-modal-backdrop" id="video-modal-backdrop" aria-label="Close video"></button>
+  <div class="event-video-modal-panel">
+    <button type="button" class="event-video-modal-close" id="video-modal-close">Close</button>
+    <iframe id="video-iframe" title="Video" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+  </div>
+</div>
+
+<script>
+const BASE = "https://aman-test.vercel.app";
+
+const publications = [
+  { name: "The Economist", src: BASE + "/publications/economist.png", cls: "media-economist" },
+  { name: "India Today", src: BASE + "/publications/india-today.png", cls: "media-india" },
+  { name: "Economic Times", src: BASE + "/publications/economic-times.png", cls: "media-et" },
+  { name: "Hindustan Times", src: BASE + "/publications/hindustan-times.svg", cls: "media-ht" },
+  { name: "The Hindu", src: BASE + "/publications/the-hindu.svg", cls: "media-hindu" },
+];
+
+const credentials = [
+  { role: "Co-Founder and CEO", org: "GradRight Inc.", when: "2019 – present", marks: [{ src: BASE + "/marks/gradright.png", alt: "GradRight" }] },
+  { role: "Consultant", org: "Krea, Atria, Plaksha, ISPP & Khangchendzonga Buddhist University", when: "2015 – 2020", marks: [
+    { src: BASE + "/marks/krea.svg", alt: "Krea" },
+    { src: BASE + "/marks/atria.png", alt: "Atria" },
+    { src: BASE + "/marks/plaksha.png", alt: "Plaksha" },
+    { src: BASE + "/marks/ispp.png", alt: "ISPP" },
+  ] },
+  { role: "Founding Project Director", org: "Ashoka University", when: "2008 – 2014", marks: [{ src: BASE + "/marks/ashoka.png", alt: "Ashoka University" }] },
+  { role: "MBA", org: "Indian School of Business, Hyderabad", when: "2007", marks: [{ src: BASE + "/marks/isb.png", alt: "ISB" }] },
+  { role: "Field Engineer", org: "Schlumberger Oilfield Services", when: "2000 – 2003", marks: [{ src: BASE + "/marks/slb.svg", alt: "Schlumberger / SLB" }] },
+  { role: "B.Tech", org: "IIT Delhi", when: "2000", marks: [{ src: BASE + "/marks/iit-delhi.png", alt: "IIT Delhi" }] },
+];
+
+const articles = [
+  { title: "Policy panic: Why new US visa rules may benefit Indian students", publication: "The Hindu", href: "https://www.thehindu.com/education/policy-panic-why-new-us-visa-rules-may-benefit-indian-students/article70175413.ece" },
+  { title: "How the end of H-1B lottery is a correction that will benefit talented Indian students", publication: "The Hindu", href: "https://www.thehindu.com/education/how-the-end-of-h-1b-lottery-is-a-correction-that-will-benefit-talented-indian-students/article70439602.ece" },
+  { title: "Universities are not fast food chains: global campuses must do more than just replicating recipes to succeed in India", publication: "Hindustan Times", href: "https://www.hindustantimes.com/education/features/universities-are-not-fast-food-chains-global-campuses-must-do-more-than-just-replicating-recipes-to-succeed-in-india-101760358930195.html" },
+  { title: "The crisis in education financing", publication: "India Today Best Colleges", href: "https://bestcolleges.indiatoday.in/news-detail/the-crisis-in-education-financing" },
+];
+
+const universities = [
+  { name: "Ashoka University", note: "Concept to Creation", logo: BASE + "/universities/ashoka.png", cls: "logo-h-11" },
+  { name: "Plaksha University", note: "GTM: Launch of their 1st program", logo: BASE + "/universities/plaksha.png", cls: "logo-h-12" },
+  { name: "Krea University", note: "Strategic Marketing, Admissions & Governance", logo: BASE + "/universities/krea.svg", cls: "logo-h-9" },
+  { name: "SOIL School of Business Design", note: "Concept to Creation", logo: BASE + "/universities/soil.png", cls: "logo-h-11b" },
+  { name: "Khangchendzonga Buddhist University", note: "Concept to Creation", logo: BASE + "/universities/kbu.png", cls: "logo-h-11b" },
+  { name: "Atria University", note: "Concept to Creation", logo: BASE + "/universities/atria.png", cls: "logo-h-9b" },
+  { name: "Indian School of Public Policy", note: "Concept to Creation to Scale-up", logo: BASE + "/universities/ispp.png", cls: "logo-h-10" },
+  { name: "Nav Vihara University", note: "Under Development", logo: BASE + "/universities/nav-vihara.png", cls: "logo-h-nv" },
+];
+
+const policymakers = [
+  { src: BASE + "/mithilesh-tiwari.jpg", alt: "Mithilesh Tiwari, Education Minister of Bihar, with Aman Singh", title: "Establishing Nav Vihar University", caption: "Mithilesh Tiwari (Education Minister of Bihar) facilitating Aman Singh for establishing Nav Vihar University." },
+  { src: BASE + "/policymaker-2.jpg", alt: "Aman Singh introducing Shri Ashish Sood, Education Minister of Delhi, to international university delegates", title: "Education Minister of Delhi Meeting 40+ Unis at GradRight's Event", caption: "Introducing Shri Ashish Sood - Education Minister of Delhi - to international delegates representing universities from the US, UK, and various other countries." },
+  { src: BASE + "/policymaker-5.jpg", alt: "Shri Ashish Sood, Education Minister of Delhi, with Aman Singh at ShiftED 2026", title: "Narela Education City at ShiftED 2026", caption: "Hosting Shri Ashish Sood, Education Minister, Government of Delhi, at ShiftED 2026 (India's Biggest Education Conclave) for discussions on Narela Education City" },
+  { src: BASE + "/policymaker-3.jpg", alt: "Raju Basnet facilitating Aman Singh for Khangchendzonga Buddhist University", title: "Setting Up Khangchendzonga Buddhist University", caption: "Raju Basnet (Education Minister of Bihar) facilitating Aman Singh for establishing Khangchendzonga Buddhist University." },
+  { src: BASE + "/policymaker-4.jpg", alt: "Gareth Wynn Owen and guests at the UK Pavilion at ShiftED 2026", title: "Inaugurating the UK Pavilion at ShiftED 2026", caption: "Gareth Wynn Owen, British Deputy High Commissioner to Telangana & Andhra Pradesh, graced the UK pavilion at ShiftED 2026, bringing 10+ UK universities face-to-face with students and parents." },
+  { src: BASE + "/policymaker-6.jpg", alt: "Khwaja Iftekar Ahmed honouring Aman Singh at the Inter Faith Harmony Foundation of India", title: "Inter Faith Harmony Foundation of India", caption: "Khwaja Iftekar Ahmed honouring Aman Singh at the Inter Faith Harmony Foundation of India." },
+];
+
+const videos = [
+  { id: "DfbWjzunscU", title: "Ed-Tech Startup GradRight's Co-Founder Speaks On The Rs 50 Cr Fundraise, Expansion Plans & More", caption: "GradRight" },
+  { id: "kaNVabOiyJY", title: "In conversation with Aman Singh, co-founder GradRight", caption: "The Financial Express" },
+];
+
+const impact = [
+  { value: "₹36,000 Cr", label: "Total loans processed" },
+  { value: "300,000+", label: "Students served" },
+  { value: "100M", label: "Media impressions" },
+  { value: "50+", label: "Academic partners" },
+  { value: "35", label: "Countries with students & universities served" },
+  { value: "2,500+", label: "Indian towns & cities served" },
+];
+
+function mediaLogo(pub, decorative) {
+  return `<div class="media-logo-slot"><img class="media-logo ${pub.cls}" src="${pub.src}" alt="${decorative ? "" : pub.name}" /></div>`;
+}
+
+function renderMarquee(el) {
+  const logos = [...publications, ...publications];
+  el.innerHTML = logos.map((pub, i) => `<div class="logo-marquee-item" ${i >= publications.length ? 'aria-hidden="true"' : ""}>${mediaLogo(pub, i >= publications.length)}</div>`).join("");
+}
+
+renderMarquee(document.getElementById("featured-marquee"));
+renderMarquee(document.getElementById("articles-marquee"));
+document.getElementById("articles-logos").innerHTML = publications.map((p) => mediaLogo(p, false)).join("");
+
+document.getElementById("credentials").innerHTML = credentials.map((item) => {
+  let markHtml = "";
+  if (item.marks.length > 1) {
+    const loop = [...item.marks, ...item.marks];
+    markHtml = `<div class="mark-marquee" aria-label="${item.marks.map(m => m.alt).join(", ")}"><div class="mark-marquee-track">${loop.map((m, i) => `<div class="mark-marquee-item"><img src="${m.src}" alt="${i < item.marks.length ? m.alt : ""}" class="h-8 w-8 object-contain" /></div>`).join("")}</div></div>`;
+  } else if (item.marks[0]) {
+    markHtml = `<img src="${item.marks[0].src}" alt="${item.marks[0].alt}" class="h-8 w-8 object-contain" />`;
+  }
+  return `<li class="s-row border-b border-line sm-odd-pr-8 sm-even-pl-8"><div class="flex items-start gap-3"><div class="mt-0.5 flex shrink-0 items-center">${markHtml}</div><div class="min-w-0 flex-1"><div class="flex items-baseline justify-between gap-4"><p class="t-card-title">${item.role}</p><p class="t-meta-brand shrink-0">${item.when}</p></div><p class="t-meta s-after-label">${item.org}</p></div></div></li>`;
+}).join("");
+
+document.getElementById("articles-list").innerHTML = articles.map((a) => `
+  <li><a class="group s-row flex flex-col gap-1 article-link sm-flex-row sm-items-baseline sm-justify-between sm-gap-10" href="${a.href}" target="_blank" rel="noopener noreferrer">
+    <p class="t-card-title max-w-3xl sm-text-title">${a.title}</p>
+    <p class="t-meta shrink-0">${a.publication}</p>
+  </a></li>`).join("");
+
+document.getElementById("universities").innerHTML = universities.map((u) => `
+  <li class="uni-card">
+    <div class="uni-logo-box"><img src="${u.logo}" alt="${u.name} logo" class="${u.cls} object-contain" /></div>
+    <p class="t-card-title s-after-media w-full text-sm-title leading-snug text-balance">${u.name}</p>
+    <p class="t-meta s-after-label w-full text-xs-meta leading-snug text-balance">${u.note}</p>
+  </li>`).join("");
+
+document.getElementById("impact").innerHTML = impact.map((i) => `
+  <div class="border-t border-brand pt-5"><dt class="t-meta">${i.label}</dt><dd class="t-stat mt-3">${i.value}</dd></div>`).join("");
+
+document.getElementById("video-page").innerHTML = videos.map((v) => `
+  <article class="flex min-w-0 flex-col bg-background">
+    <div class="event-video-card">
+      <button type="button" class="event-video-link" data-video-id="${v.id}" data-video-title="${v.title.replace(/"/g, "&quot;")}" aria-label="Play ${v.title.replace(/"/g, "&quot;")}">
+        <img src="https://i.ytimg.com/vi/${v.id}/hqdefault.jpg" alt="" />
+        <span class="event-video-play" aria-hidden="true"></span>
+      </button>
+    </div>
+    <p class="t-card-title s-after-media">${v.title}</p>
+    <p class="t-meta s-after-label">${v.caption}</p>
+  </article>`).join("");
+
+// About toggle
+const aboutMore = document.getElementById("about-more");
+const aboutToggle = document.getElementById("about-toggle");
+aboutToggle.addEventListener("click", () => {
+  const open = aboutMore.hasAttribute("hidden");
+  if (open) aboutMore.removeAttribute("hidden"); else aboutMore.setAttribute("hidden", "");
+  aboutToggle.setAttribute("aria-expanded", String(open));
+  aboutToggle.textContent = open ? "Read less" : "Read more";
+});
+
+// Video modal
+const modal = document.getElementById("video-modal");
+const iframe = document.getElementById("video-iframe");
+function closeVideo() {
+  modal.hidden = true;
+  iframe.src = "";
+  document.body.style.overflow = "";
+}
+document.getElementById("video-page").addEventListener("click", (e) => {
+  const btn = e.target.closest("[data-video-id]");
+  if (!btn) return;
+  iframe.src = `https://www.youtube-nocookie.com/embed/${btn.dataset.videoId}?autoplay=1&rel=0`;
+  iframe.title = btn.dataset.videoTitle;
+  modal.hidden = false;
+  document.body.style.overflow = "hidden";
+});
+document.getElementById("video-modal-close").addEventListener("click", closeVideo);
+document.getElementById("video-modal-backdrop").addEventListener("click", closeVideo);
+window.addEventListener("keydown", (e) => { if (e.key === "Escape" && !modal.hidden) closeVideo(); });
+
+// Policymaker carousel
+(function initPolicymakers() {
+  const GAP = 24, PEEK = 0.16;
+  const track = document.getElementById("pm-track");
+  const viewport = document.getElementById("pm-viewport");
+  const controls = document.getElementById("pm-controls");
+  const prevBtn = document.getElementById("pm-prev");
+  const nextBtn = document.getElementById("pm-next");
+  let perView = 2, index = 0, stepPx = 0, cardW = 0, paused = false, dragOffset = 0, dragging = false;
+  let drag = null;
+
+  track.innerHTML = policymakers.map((item) => `
+    <article class="policymaker-rail-card">
+      <div class="pm-card-media"><img src="${item.src}" alt="${item.alt}" draggable="false" /></div>
+      <p class="t-card-title s-after-media">${item.title}</p>
+      <p class="t-meta s-after-label">${item.caption}</p>
+    </article>`).join("");
+
+  function maxIndex() { return Math.max(0, policymakers.length - perView); }
+  function pageCount() { return Math.ceil(policymakers.length / perView); }
+  function page() { return Math.floor(index / perView); }
+  function slots() { return perView + PEEK; }
+
+  function apply() {
+    const cards = track.querySelectorAll(".policymaker-rail-card");
+    cards.forEach((c) => { c.style.flex = cardW > 0 ? `0 0 ${cardW}px` : `0 0 calc((100% - ${GAP * (Math.ceil(slots()) - 1)}px) / ${slots()})`; });
+    track.style.gap = GAP + "px";
+    track.style.transform = `translate3d(${- (index / perView) * stepPx + dragOffset}px, 0, 0)`;
+    track.style.transition = dragging ? "none" : "transform 0.65s cubic-bezier(0.22, 1, 0.36, 1)";
+    controls.hidden = pageCount() <= 1;
+    prevBtn.disabled = page() === 0;
+    nextBtn.disabled = page() === pageCount() - 1;
+  }
+
+  function measure() {
+    const width = viewport.offsetWidth;
+    if (width <= 0) return;
+    const gaps = Math.ceil(slots()) - 1;
+    cardW = (width - GAP * gaps) / slots();
+    stepPx = (cardW + GAP) * perView;
+    index = Math.min(Math.floor(index / perView) * perView, maxIndex());
+    apply();
+  }
+
+  function goToPage(next) {
+    const clamped = Math.max(0, Math.min(pageCount() - 1, next));
+    index = Math.min(clamped * perView, maxIndex());
+    apply();
+  }
+
+  const media = window.matchMedia("(min-width: 768px)");
+  function syncPerView() {
+    perView = media.matches ? 2 : 1;
+    index = 0;
+    dragOffset = 0;
+    measure();
+  }
+  syncPerView();
+  media.addEventListener("change", syncPerView);
+  new ResizeObserver(measure).observe(viewport);
+
+  setInterval(() => {
+    if (maxIndex() <= 0 || paused || dragging) return;
+    const next = index + perView;
+    index = next > maxIndex() ? 0 : next;
+    apply();
+  }, 5200);
+
+  document.getElementById("policymaker-rail").addEventListener("mouseenter", () => paused = true);
+  document.getElementById("policymaker-rail").addEventListener("mouseleave", () => { if (!dragging) paused = false; });
+  prevBtn.addEventListener("click", () => goToPage(page() - 1));
+  nextBtn.addEventListener("click", () => goToPage(page() + 1));
+
+  viewport.addEventListener("pointerdown", (e) => {
+    if (pageCount() <= 1 || e.button !== 0) return;
+    drag = { id: e.pointerId, startX: e.clientX, moved: false };
+    dragging = true; paused = true;
+    viewport.setPointerCapture(e.pointerId);
+    apply();
+  });
+  viewport.addEventListener("pointermove", (e) => {
+    if (!drag || drag.id !== e.pointerId) return;
+    const delta = e.clientX - drag.startX;
+    if (Math.abs(delta) > 6) drag.moved = true;
+    const atStart = page() === 0 && delta > 0;
+    const atEnd = page() === pageCount() - 1 && delta < 0;
+    dragOffset = delta * (atStart || atEnd ? 0.35 : 1);
+    apply();
+  });
+  function endDrag(clientX) {
+    if (!drag) return;
+    const delta = clientX - drag.startX;
+    const threshold = Math.max(48, stepPx * 0.18);
+    let next = page();
+    if (Math.abs(delta) > threshold) next = delta < 0 ? page() + 1 : page() - 1;
+    drag = null; dragging = false; dragOffset = 0;
+    goToPage(next);
+  }
+  viewport.addEventListener("pointerup", (e) => { if (drag && drag.id === e.pointerId) endDrag(e.clientX); });
+  viewport.addEventListener("pointercancel", () => { drag = null; dragging = false; dragOffset = 0; apply(); });
+})();
+</script>
+</body>
+</html>
