@@ -31,9 +31,11 @@ html {
 }
 
 body {
+  margin: 0;
+  padding: 0;
   background: var(--background);
   color: var(--foreground);
-  font-family: var(--font-inter), sans-serif;
+  font-family: Inter, system-ui, sans-serif;
 }
 
 ::selection {
@@ -242,8 +244,11 @@ body {
 
 .brand-footer {
   /* Desktop art: 1024 × 355 */
+  position: relative;
+  isolation: isolate;
   aspect-ratio: 1024 / 355;
   min-height: 12rem;
+  overflow: hidden;
 }
 
 .brand-footer-bg {
@@ -1024,7 +1029,7 @@ p, h1, h2 { margin: 0; }
   .xl-max-w-xl { max-width: 36rem; }
 }
 
-body { font-family: Inter, system-ui, sans-serif; }
+body { margin: 0; padding: 0; font-family: Inter, system-ui, sans-serif; }
   </style>
 </head>
 <body>
@@ -1157,7 +1162,7 @@ body { font-family: Inter, system-ui, sans-serif; }
           <span>Scale built through</span>
           <img src="https://aman-test.vercel.app/gradright-logo.png" alt="GradRight" class="gradright-inline object-contain object-left" />
         </h2>
-        <dl class="s-after-header grid gap-8 sm-grid-3" id="impact"></dl>
+        <dl class="s-after-header grid gap-8 sm-grid-3" id="impact-list"></dl>
       </div>
     </section>
   </main>
@@ -1228,6 +1233,7 @@ const policymakers = [
   { src: BASE + "/policymaker-3.jpg", alt: "Raju Basnet facilitating Aman Singh for Khangchendzonga Buddhist University", title: "Setting Up Khangchendzonga Buddhist University", caption: "Raju Basnet (Education Minister of Bihar) facilitating Aman Singh for establishing Khangchendzonga Buddhist University." },
   { src: BASE + "/policymaker-4.jpg", alt: "Gareth Wynn Owen and guests at the UK Pavilion at ShiftED 2026", title: "Inaugurating the UK Pavilion at ShiftED 2026", caption: "Gareth Wynn Owen, British Deputy High Commissioner to Telangana & Andhra Pradesh, graced the UK pavilion at ShiftED 2026, bringing 10+ UK universities face-to-face with students and parents." },
   { src: BASE + "/policymaker-6.jpg", alt: "Khwaja Iftekar Ahmed honouring Aman Singh at the Inter Faith Harmony Foundation of India", title: "Inter Faith Harmony Foundation of India", caption: "Khwaja Iftekar Ahmed honouring Aman Singh at the Inter Faith Harmony Foundation of India." },
+  { src: BASE + "/policymaker-7.jpg", alt: "Aman Singh moderating a panel discussion with international delegates at ShiftED 2026", title: "Panel Discussion with International Delegates at ShiftED 2026", caption: "Moderating a panel discussion between Dean Chell Roberts, Dean Michael Mazzeo, and Professor Somak Raychaudhury." },
 ];
 
 const videos = [
@@ -1281,7 +1287,7 @@ document.getElementById("universities").innerHTML = universities.map((u) => `
     <p class="t-meta s-after-label w-full text-xs-meta leading-snug text-balance">${u.note}</p>
   </li>`).join("");
 
-document.getElementById("impact").innerHTML = impact.map((i) => `
+document.getElementById("impact-list").innerHTML = impact.map((i) => `
   <div class="border-t border-brand pt-5"><dt class="t-meta">${i.label}</dt><dd class="t-stat mt-3">${i.value}</dd></div>`).join("");
 
 document.getElementById("video-page").innerHTML = videos.map((v) => `

@@ -487,6 +487,14 @@ export default function Home() {
                   caption:
                     "Khwaja Iftekar Ahmed honouring Aman Singh at the Inter Faith Harmony Foundation of India.",
                 },
+                {
+                  src: "/policymaker-7.jpg",
+                  alt: "Aman Singh moderating a panel discussion with international delegates at ShiftED 2026",
+                  title:
+                    "Panel Discussion with International Delegates at ShiftED 2026",
+                  caption:
+                    "Moderating a panel discussion between Dean Chell Roberts, Dean Michael Mazzeo, and Professor Somak Raychaudhury.",
+                },
               ]}
             />
           </div>
