@@ -1039,8 +1039,9 @@ p, h1, h2 { margin: 0; }
   .hero-copy { font-size: 1.125rem; line-height: 2rem; }
   .sm-grid-2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .sm-grid-3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
-  .sm-odd-pr-8:nth-child(odd) { padding-right: 2rem; }
-  .sm-even-pl-8:nth-child(even) { padding-left: 2rem; }
+  .credentials-grid { grid-auto-flow: column; grid-template-rows: repeat(3, minmax(0, auto)); }
+  .credentials-grid > :nth-child(-n + 3) { padding-right: 2rem; }
+  .credentials-grid > :nth-child(n + 4) { padding-left: 2rem; }
   .sm-flex-row { flex-direction: row; }
   .sm-items-baseline { align-items: baseline; }
   .sm-justify-between { justify-content: space-between; }
@@ -1125,7 +1126,7 @@ body { margin: 0; padding: 0; font-family: Inter, system-ui, sans-serif; }
         </div>
       </div>
       <div class="s-container pb-16">
-        <ul class="grid gap-0 border-t border-line sm-grid-2" id="credentials"></ul>
+        <ul class="credentials-grid grid gap-0 border-t border-line sm-grid-2" id="credentials"></ul>
       </div>
     </section>
 
@@ -1271,7 +1272,7 @@ const policymakers = [
   { src: BASE + "/policymaker-5.jpg", alt: "Shri Ashish Sood, Education Minister of Delhi, with Aman Singh at ShiftED'26", title: "Narela Education City at ShiftED'26", caption: "Hosting Shri Ashish Sood, Education Minister, Government of Delhi, at ShiftED'26 (India's Biggest Education Conclave) for discussions on Narela Education City" },
   { src: BASE + "/policymaker-3.jpg", alt: "Prem Singh Tamang, Chief Minister of Sikkim, facilitating Aman Singh for Khangchendzonga Buddhist University", title: "Setting Up Khangchendzonga Buddhist University", caption: "Prem Singh Tamang, Chief Minister of Sikkim, facilitating Aman Singh for establishing Khangchendzonga Buddhist University." },
   { src: BASE + "/policymaker-4.jpg", alt: "Gareth Wynn Owen and guests at the UK Pavilion at ShiftED'24", title: "Inaugurating the UK Pavilion at ShiftED'24", caption: "Gareth Wynn Owen, British Deputy High Commissioner to Telangana & Andhra Pradesh, graced the UK pavilion at ShiftED'24, bringing 10+ UK universities face-to-face with students and parents." },
-  { src: BASE + "/policymaker-6.jpg", alt: "Khwaja Iftekar Ahmed honouring Aman Singh at the Inter Faith Harmony Foundation of India", title: "Inter Faith Harmony Foundation of India", caption: "Khwaja Iftekar Ahmed (President, Inter-Faith Harmony Foundation of India) honouring Aman Singh at the Inter Faith Harmony Foundation of India." },
+  { src: BASE + "/policymaker-6.jpg", alt: "Dr. Khwaja Iftekar Ahmed honouring Aman Singh at the Inter Faith Harmony Foundation of India", title: "Inter Faith Harmony Foundation of India", caption: "Dr. Khwaja Iftekar Ahmed (President, Inter-Faith Harmony Foundation of India) honouring Aman Singh at the Inter Faith Harmony Foundation of India." },
   { src: BASE + "/policymaker-7.jpg", alt: "Aman Singh moderating a panel discussion with international delegates at ShiftED'26", title: "Panel Discussion with International Delegates at ShiftED'26", caption: "Moderating a discussion with distinguished panelists (left to right):\nShri Sumant Singh (IAS) - Jt. Secretary, Manipur\nSomak Raychaudhury - Vice Chancellor of Ashoka University\nMichael Mazzeo - Dean of Olin Business School at Washington University in St. Louis\nChell Roberts (PhD) - Dean, Shiley-Marcos School of Engineering" },
 ];
 
@@ -1310,7 +1311,7 @@ document.getElementById("credentials").innerHTML = credentials.map((item) => {
   } else if (item.marks[0]) {
     markHtml = `<img src="${item.marks[0].src}" alt="${item.marks[0].alt}" class="h-8 w-8 object-contain" />`;
   }
-  return `<li class="s-row border-b border-line sm-odd-pr-8 sm-even-pl-8"><div class="flex items-start gap-3"><div class="mt-0.5 flex shrink-0 items-center">${markHtml}</div><div class="min-w-0 flex-1"><div class="flex items-baseline justify-between gap-4"><p class="t-card-title">${item.role}</p><p class="t-meta-brand shrink-0">${item.when}</p></div><p class="t-meta s-after-label">${item.org}</p></div></div></li>`;
+  return `<li class="s-row border-b border-line"><div class="flex items-start gap-3"><div class="mt-0.5 flex shrink-0 items-center">${markHtml}</div><div class="min-w-0 flex-1"><div class="flex items-baseline justify-between gap-4"><p class="t-card-title">${item.role}</p><p class="t-meta-brand shrink-0">${item.when}</p></div><p class="t-meta s-after-label">${item.org}</p></div></div></li>`;
 }).join("");
 
 document.getElementById("articles-list").innerHTML = articles.map((a) => `

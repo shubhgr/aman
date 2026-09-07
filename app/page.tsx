@@ -299,11 +299,11 @@ export default function Home() {
           </div>
 
           <div className="s-container pb-16 lg:pb-20">
-            <ul className="grid gap-0 border-t border-line sm:grid-cols-2">
+            <ul className="credentials-grid grid gap-0 border-t border-line sm:grid-cols-2">
               {credentials.map((item) => (
                 <li
                   key={`${item.role}-${item.org}`}
-                  className="s-row border-b border-line sm:odd:pr-8 sm:even:pl-8"
+                  className="s-row border-b border-line"
                 >
                   <div className="flex items-start gap-3">
                     <div className="mt-0.5 flex shrink-0 items-center">
@@ -475,17 +475,17 @@ export default function Home() {
                 },
                 {
                   src: "/policymaker-4.jpg",
-                  alt: "Gareth Wynn Owen and guests at the UK Pavilion at ShiftED'26",
-                  title: "Inaugurating the UK Pavilion at ShiftED'26",
+                  alt: "Gareth Wynn Owen and guests at the UK Pavilion at ShiftED'24",
+                  title: "Inaugurating the UK Pavilion at ShiftED'24",
                   caption:
-                    "Gareth Wynn Owen, British Deputy High Commissioner to Telangana & Andhra Pradesh, graced the UK pavilion at ShiftED'26, bringing 10+ UK universities face-to-face with students and parents.",
+                    "Gareth Wynn Owen, British Deputy High Commissioner to Telangana & Andhra Pradesh, graced the UK pavilion at ShiftED'24, bringing 10+ UK universities face-to-face with students and parents.",
                 },
                 {
                   src: "/policymaker-6.jpg",
-                  alt: "Khwaja Iftekar Ahmed honouring Aman Singh at the Inter Faith Harmony Foundation of India",
+                  alt: "Dr. Khwaja Iftekar Ahmed honouring Aman Singh at the Inter Faith Harmony Foundation of India",
                   title: "Inter Faith Harmony Foundation of India",
                   caption:
-                    "Khwaja Iftekar Ahmed honouring Aman Singh at the Inter Faith Harmony Foundation of India.",
+                    "Dr. Khwaja Iftekar Ahmed (President, Inter-Faith Harmony Foundation of India) honouring Aman Singh at the Inter Faith Harmony Foundation of India.",
                 },
                 {
                   src: "/policymaker-7.jpg",

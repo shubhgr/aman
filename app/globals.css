@@ -713,6 +713,21 @@ body {
   cursor: default;
 }
 
+@media (min-width: 640px) {
+  .credentials-grid {
+    grid-auto-flow: column;
+    grid-template-rows: repeat(3, minmax(0, auto));
+  }
+
+  .credentials-grid > :nth-child(-n + 3) {
+    padding-right: 2rem;
+  }
+
+  .credentials-grid > :nth-child(n + 4) {
+    padding-left: 2rem;
+  }
+}
+
 .policymaker-rail {
   display: grid;
   gap: 1.25rem;
