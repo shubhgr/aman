@@ -747,6 +747,44 @@ body {
   background: var(--background);
 }
 
+.policymaker-caption {
+  white-space: pre-line;
+}
+
+.policymaker-caption.is-clamped {
+  display: -webkit-box;
+  overflow: hidden;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+  white-space: normal;
+}
+
+.policymaker-read-more {
+  align-self: start;
+  margin-top: 0.4rem;
+  border: 0;
+  padding: 0;
+  background: none;
+  color: var(--brand);
+  font: inherit;
+  font-size: 0.875rem;
+  font-weight: 600;
+  line-height: 1.5;
+  cursor: pointer;
+  text-decoration: underline;
+  text-underline-offset: 0.18em;
+  text-decoration-thickness: 1px;
+}
+
+.policymaker-read-more:hover {
+  color: color-mix(in srgb, var(--brand) 82%, var(--foreground));
+}
+
+.policymaker-read-more:focus-visible {
+  outline: 2px solid var(--brand);
+  outline-offset: 3px;
+}
+
 @media (min-width: 1024px) {
   .policymaker-rail {
     gap: 1.5rem;
@@ -1017,6 +1055,7 @@ p, h1, h2 { margin: 0; }
   .lg-grid-about { grid-template-columns: 0.9fr 1.1fr; }
   .lg-grid-4 { grid-template-columns: repeat(4, minmax(0, 1fr)); }
   .lg-flex { display: flex; }
+  .lg-flex-row { flex-direction: row; }
   .lg-hidden { display: none; }
   .lg-items-end { align-items: flex-end; }
   .lg-justify-between { justify-content: space-between; }
@@ -1093,7 +1132,7 @@ body { margin: 0; padding: 0; font-family: Inter, system-ui, sans-serif; }
     <!-- Articles -->
     <section id="articles" class="border-t border-line bg-background">
       <div class="s-container s-section">
-        <div class="flex flex-col gap-6 lg-flex lg-items-end lg-justify-between lg-gap-10">
+        <div class="flex flex-col gap-6 lg-flex lg-flex-row lg-items-end lg-justify-between lg-gap-10">
           <h2 class="t-h2">Articles by Aman</h2>
           <div class="logo-marquee lg-hidden">
             <div class="logo-marquee-track" id="articles-marquee"></div>
@@ -1228,12 +1267,12 @@ const universities = [
 
 const policymakers = [
   { src: BASE + "/mithilesh-tiwari.jpg", alt: "Mithilesh Tiwari, Education Minister of Bihar, with Aman Singh", title: "Establishing Nav Vihar University", caption: "Mithilesh Tiwari (Education Minister of Bihar) facilitating Aman Singh for establishing Nav Vihar University." },
-  { src: BASE + "/policymaker-2.jpg", alt: "Aman Singh introducing Shri Ashish Sood, Education Minister of Delhi, to international university delegates", title: "Education Minister of Delhi Meeting 40+ Unis at GradRight's Event", caption: "Introducing Shri Ashish Sood - Education Minister of Delhi - to international delegates representing universities from the US, UK, and various other countries." },
-  { src: BASE + "/policymaker-5.jpg", alt: "Shri Ashish Sood, Education Minister of Delhi, with Aman Singh at ShiftED 2026", title: "Narela Education City at ShiftED 2026", caption: "Hosting Shri Ashish Sood, Education Minister, Government of Delhi, at ShiftED 2026 (India's Biggest Education Conclave) for discussions on Narela Education City" },
-  { src: BASE + "/policymaker-3.jpg", alt: "Raju Basnet facilitating Aman Singh for Khangchendzonga Buddhist University", title: "Setting Up Khangchendzonga Buddhist University", caption: "Raju Basnet (Education Minister of Bihar) facilitating Aman Singh for establishing Khangchendzonga Buddhist University." },
-  { src: BASE + "/policymaker-4.jpg", alt: "Gareth Wynn Owen and guests at the UK Pavilion at ShiftED 2026", title: "Inaugurating the UK Pavilion at ShiftED 2026", caption: "Gareth Wynn Owen, British Deputy High Commissioner to Telangana & Andhra Pradesh, graced the UK pavilion at ShiftED 2026, bringing 10+ UK universities face-to-face with students and parents." },
+  { src: BASE + "/policymaker-2.jpg", alt: "Aman Singh introducing Shri Ashish Sood, Education Minister of Delhi, to international university delegates", title: "Education Minister of Delhi Meeting 40+ Unis at ShiftED'26", caption: "Introducing Shri Ashish Sood - Education Minister of Delhi - to international delegates representing universities from the US, UK, and various other countries." },
+  { src: BASE + "/policymaker-5.jpg", alt: "Shri Ashish Sood, Education Minister of Delhi, with Aman Singh at ShiftED'26", title: "Narela Education City at ShiftED'26", caption: "Hosting Shri Ashish Sood, Education Minister, Government of Delhi, at ShiftED'26 (India's Biggest Education Conclave) for discussions on Narela Education City" },
+  { src: BASE + "/policymaker-3.jpg", alt: "Prem Singh Tamang, Chief Minister of Sikkim, facilitating Aman Singh for Khangchendzonga Buddhist University", title: "Setting Up Khangchendzonga Buddhist University", caption: "Prem Singh Tamang, Chief Minister of Sikkim, facilitating Aman Singh for establishing Khangchendzonga Buddhist University." },
+  { src: BASE + "/policymaker-4.jpg", alt: "Gareth Wynn Owen and guests at the UK Pavilion at ShiftED'26", title: "Inaugurating the UK Pavilion at ShiftED'26", caption: "Gareth Wynn Owen, British Deputy High Commissioner to Telangana & Andhra Pradesh, graced the UK pavilion at ShiftED'26, bringing 10+ UK universities face-to-face with students and parents." },
   { src: BASE + "/policymaker-6.jpg", alt: "Khwaja Iftekar Ahmed honouring Aman Singh at the Inter Faith Harmony Foundation of India", title: "Inter Faith Harmony Foundation of India", caption: "Khwaja Iftekar Ahmed honouring Aman Singh at the Inter Faith Harmony Foundation of India." },
-  { src: BASE + "/policymaker-7.jpg", alt: "Aman Singh moderating a panel discussion with international delegates at ShiftED 2026", title: "Panel Discussion with International Delegates at ShiftED 2026", caption: "Moderating a panel discussion between Dean Chell Roberts, Dean Michael Mazzeo, and Professor Somak Raychaudhury." },
+  { src: BASE + "/policymaker-7.jpg", alt: "Aman Singh moderating a panel discussion with international delegates at ShiftED'26", title: "Panel Discussion with International Delegates at ShiftED'26", caption: "Moderating a discussion with distinguished panelists (left to right):\nShri Sumant Singh (IAS) - Jt. Secretary, Manipur\nSomak Raychaudhury - Vice Chancellor of Ashoka University\nMichael Mazzeo - Dean of Olin Business School at Washington University in St. Louis\nChell Roberts (PhD) - Dean, Shiley-Marcos School of Engineering" },
 ];
 
 const videos = [
@@ -1343,16 +1382,60 @@ window.addEventListener("keydown", (e) => { if (e.key === "Escape" && !modal.hid
   let perView = 2, index = 0, stepPx = 0, cardW = 0, paused = false, dragOffset = 0, dragging = false;
   let drag = null;
 
-  track.innerHTML = policymakers.map((item) => `
-    <article class="policymaker-rail-card">
+  track.innerHTML = policymakers.map((item, itemIndex) => `
+    <article class="policymaker-rail-card" data-card-index="${itemIndex}">
       <div class="pm-card-media"><img src="${item.src}" alt="${item.alt}" draggable="false" /></div>
       <p class="t-card-title s-after-media">${item.title}</p>
-      <p class="t-meta s-after-label">${item.caption}</p>
+      <p class="t-meta s-after-label policymaker-caption is-clamped" id="policymaker-caption-${itemIndex}">${item.caption}</p>
+      <button type="button" class="policymaker-read-more" aria-expanded="false" aria-controls="policymaker-caption-${itemIndex}" hidden>Read more</button>
     </article>`).join("");
+
+  function syncCaptionButtons() {
+    track.querySelectorAll(".policymaker-read-more").forEach((button) => {
+      const caption = document.getElementById(button.getAttribute("aria-controls"));
+      const card = button.closest(".policymaker-rail-card");
+      const cardIndex = Number.parseInt(card.dataset.cardIndex, 10);
+      const lineHeight = Number.parseFloat(window.getComputedStyle(caption).lineHeight);
+      const active = cardIndex >= index && cardIndex < index + perView;
+      const clone = caption.cloneNode(true);
+      clone.classList.remove("is-clamped");
+      clone.style.position = "absolute";
+      clone.style.visibility = "hidden";
+      clone.style.pointerEvents = "none";
+      clone.style.width = caption.clientWidth + "px";
+      document.body.appendChild(clone);
+      const shouldShow = clone.scrollHeight > lineHeight * 3 + 1;
+      clone.remove();
+      button.hidden = !shouldShow;
+      if (!active) {
+        button.setAttribute("aria-expanded", "false");
+        button.textContent = "Read more";
+        caption.classList.add("is-clamped");
+      }
+    });
+  }
+
+  track.addEventListener("click", (event) => {
+    const button = event.target.closest(".policymaker-read-more");
+    if (!button) return;
+
+    const caption = document.getElementById(button.getAttribute("aria-controls"));
+    const card = button.closest(".policymaker-rail-card");
+    const cardIndex = Number.parseInt(card.dataset.cardIndex, 10);
+    const active = cardIndex >= index && cardIndex < index + perView;
+    if (!active) {
+      goToPage(Math.floor(cardIndex / perView));
+    }
+    const expanded = button.getAttribute("aria-expanded") === "true";
+    button.setAttribute("aria-expanded", String(!expanded));
+    button.textContent = expanded ? "Read more" : "Read less";
+    caption.classList.toggle("is-clamped", expanded);
+  });
+  syncCaptionButtons();
 
   function maxIndex() { return Math.max(0, policymakers.length - perView); }
   function pageCount() { return Math.ceil(policymakers.length / perView); }
-  function page() { return Math.floor(index / perView); }
+  function page() { return index >= maxIndex() ? pageCount() - 1 : Math.floor(index / perView); }
   function slots() { return perView + PEEK; }
 
   function apply() {
@@ -1372,14 +1455,16 @@ window.addEventListener("keydown", (e) => { if (e.key === "Escape" && !modal.hid
     const gaps = Math.ceil(slots()) - 1;
     cardW = (width - GAP * gaps) / slots();
     stepPx = (cardW + GAP) * perView;
-    index = Math.min(Math.floor(index / perView) * perView, maxIndex());
+    index = Math.min(index, maxIndex());
     apply();
+    syncCaptionButtons();
   }
 
   function goToPage(next) {
     const clamped = Math.max(0, Math.min(pageCount() - 1, next));
     index = Math.min(clamped * perView, maxIndex());
     apply();
+    syncCaptionButtons();
   }
 
   const media = window.matchMedia("(min-width: 768px)");
@@ -1398,6 +1483,7 @@ window.addEventListener("keydown", (e) => { if (e.key === "Escape" && !modal.hid
     const next = index + perView;
     index = next > maxIndex() ? 0 : next;
     apply();
+    syncCaptionButtons();
   }, 5200);
 
   document.getElementById("policymaker-rail").addEventListener("mouseenter", () => paused = true);
@@ -1407,6 +1493,7 @@ window.addEventListener("keydown", (e) => { if (e.key === "Escape" && !modal.hid
 
   viewport.addEventListener("pointerdown", (e) => {
     if (pageCount() <= 1 || e.button !== 0) return;
+    if (e.target.closest("button")) return;
     drag = { id: e.pointerId, startX: e.clientX, moved: false };
     dragging = true; paused = true;
     viewport.setPointerCapture(e.pointerId);

@@ -455,30 +455,30 @@ export default function Home() {
                   src: "/policymaker-2.jpg",
                   alt: "Aman Singh introducing Shri Ashish Sood, Education Minister of Delhi, to international university delegates",
                   title:
-                    "Education Minister of Delhi Meeting 40+ Unis at GradRight's Event",
+                    "Education Minister of Delhi Meeting 40+ Unis at ShiftED'26",
                   caption:
                     "Introducing Shri Ashish Sood - Education Minister of Delhi - to international delegates representing universities from the US, UK, and various other countries.",
                 },
                 {
                   src: "/policymaker-5.jpg",
-                  alt: "Shri Ashish Sood, Education Minister of Delhi, with Aman Singh at ShiftED 2026",
-                  title: "Narela Education City at ShiftED 2026",
+                  alt: "Shri Ashish Sood, Education Minister of Delhi, with Aman Singh at ShiftED'26",
+                  title: "Narela Education City at ShiftED'26",
                   caption:
-                    "Hosting Shri Ashish Sood, Education Minister, Government of Delhi, at ShiftED 2026 (India's Biggest Education Conclave) for discussions on Narela Education City",
+                    "Hosting Shri Ashish Sood, Education Minister, Government of Delhi, at ShiftED'26 (India's Biggest Education Conclave) for discussions on Narela Education City",
                 },
                 {
                   src: "/policymaker-3.jpg",
-                  alt: "Raju Basnet facilitating Aman Singh for Khangchendzonga Buddhist University",
+                  alt: "Prem Singh Tamang, Chief Minister of Sikkim, facilitating Aman Singh for Khangchendzonga Buddhist University",
                   title: "Setting Up Khangchendzonga Buddhist University",
                   caption:
-                    "Raju Basnet (Education Minister of Bihar) facilitating Aman Singh for establishing Khangchendzonga Buddhist University.",
+                    "Prem Singh Tamang, Chief Minister of Sikkim, facilitating Aman Singh for establishing Khangchendzonga Buddhist University.",
                 },
                 {
                   src: "/policymaker-4.jpg",
-                  alt: "Gareth Wynn Owen and guests at the UK Pavilion at ShiftED 2026",
-                  title: "Inaugurating the UK Pavilion at ShiftED 2026",
+                  alt: "Gareth Wynn Owen and guests at the UK Pavilion at ShiftED'26",
+                  title: "Inaugurating the UK Pavilion at ShiftED'26",
                   caption:
-                    "Gareth Wynn Owen, British Deputy High Commissioner to Telangana & Andhra Pradesh, graced the UK pavilion at ShiftED 2026, bringing 10+ UK universities face-to-face with students and parents.",
+                    "Gareth Wynn Owen, British Deputy High Commissioner to Telangana & Andhra Pradesh, graced the UK pavilion at ShiftED'26, bringing 10+ UK universities face-to-face with students and parents.",
                 },
                 {
                   src: "/policymaker-6.jpg",
@@ -489,11 +489,11 @@ export default function Home() {
                 },
                 {
                   src: "/policymaker-7.jpg",
-                  alt: "Aman Singh moderating a panel discussion with international delegates at ShiftED 2026",
+                  alt: "Aman Singh moderating a panel discussion with international delegates at ShiftED'26",
                   title:
-                    "Panel Discussion with International Delegates at ShiftED 2026",
+                    "Panel Discussion with International Delegates at ShiftED'26",
                   caption:
-                    "Moderating a panel discussion between Dean Chell Roberts, Dean Michael Mazzeo, and Professor Somak Raychaudhury.",
+                    "Moderating a discussion with distinguished panelists (left to right):\nShri Sumant Singh (IAS) - Jt. Secretary, Manipur\nSomak Raychaudhury - Vice Chancellor of Ashoka University\nMichael Mazzeo - Dean of Olin Business School at Washington University in St. Louis\nChell Roberts (PhD) - Dean, Shiley-Marcos School of Engineering",
                 },
               ]}
             />

@@ -742,6 +742,44 @@ body {
   background: var(--background);
 }
 
+.policymaker-caption {
+  white-space: pre-line;
+}
+
+.policymaker-caption.is-clamped {
+  display: -webkit-box;
+  overflow: hidden;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+  white-space: normal;
+}
+
+.policymaker-read-more {
+  align-self: start;
+  margin-top: 0.4rem;
+  border: 0;
+  padding: 0;
+  background: none;
+  color: var(--brand);
+  font: inherit;
+  font-size: 0.875rem;
+  font-weight: 600;
+  line-height: 1.5;
+  cursor: pointer;
+  text-decoration: underline;
+  text-underline-offset: 0.18em;
+  text-decoration-thickness: 1px;
+}
+
+.policymaker-read-more:hover {
+  color: color-mix(in srgb, var(--brand) 82%, var(--foreground));
+}
+
+.policymaker-read-more:focus-visible {
+  outline: 2px solid var(--brand);
+  outline-offset: 3px;
+}
+
 @media (min-width: 1024px) {
   .policymaker-rail {
     gap: 1.5rem;

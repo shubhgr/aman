@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { useEffect, useRef, useState } from "react";
+import { type CSSProperties, useEffect, useRef, useState } from "react";
 
 type PolicymakerCard = {
   src: string;
@@ -13,6 +13,91 @@ type PolicymakerCard = {
 const GAP_PX = 24;
 /** Extra fraction of a card so the next page peeks in. */
 const PEEK = 0.16;
+
+function PolicymakerCardArticle({
+  item,
+  isFullyVisible,
+  onReveal,
+  style,
+}: {
+  item: PolicymakerCard;
+  isFullyVisible: boolean;
+  onReveal: () => void;
+  style: CSSProperties;
+}) {
+  const [expanded, setExpanded] = useState(false);
+  const [canExpand, setCanExpand] = useState(false);
+  const captionRef = useRef<HTMLParagraphElement>(null);
+
+  useEffect(() => {
+    const caption = captionRef.current;
+    if (!caption) return;
+
+    const measure = () => {
+      const lineHeight = Number.parseFloat(
+        window.getComputedStyle(caption).lineHeight,
+      );
+      const clone = caption.cloneNode(true) as HTMLParagraphElement;
+      clone.classList.remove("is-clamped");
+      clone.style.position = "absolute";
+      clone.style.visibility = "hidden";
+      clone.style.pointerEvents = "none";
+      clone.style.width = `${caption.clientWidth}px`;
+      document.body.appendChild(clone);
+      setCanExpand(clone.scrollHeight > lineHeight * 3 + 1);
+      clone.remove();
+    };
+
+    measure();
+    const observer = new ResizeObserver(measure);
+    observer.observe(caption);
+    return () => observer.disconnect();
+  }, [item.caption]);
+
+  const visibleExpanded = isFullyVisible && expanded;
+
+  return (
+    <article className="policymaker-rail-card" style={style}>
+      <div className="relative aspect-[16/10] overflow-hidden bg-[color-mix(in_srgb,#121022_4%,#F8F7F9)]">
+        <Image
+          src={item.src}
+          alt={item.alt}
+          fill
+          draggable={false}
+          sizes="(max-width: 767px) 86vw, 50vw"
+          className="object-cover object-center"
+        />
+      </div>
+      <p className="t-card-title s-after-media">{item.title}</p>
+      <p
+        ref={captionRef}
+        className={`t-meta s-after-label policymaker-caption${
+          visibleExpanded ? "" : " is-clamped"
+        }`}
+      >
+        {item.caption}
+      </p>
+      {canExpand ? (
+        <button
+          type="button"
+          className="policymaker-read-more"
+          aria-expanded={visibleExpanded}
+          onClick={() => {
+            if (!isFullyVisible) {
+              onReveal();
+              setExpanded(true);
+              return;
+            }
+
+            setExpanded((current) => !current);
+          }}
+        >
+          {visibleExpanded ? "Read less" : "Read more"}
+        </button>
+      ) : null}
+    </article>
+  );
+}
 
 export default function PolicymakerRail({
   items,
@@ -37,7 +122,8 @@ export default function PolicymakerRail({
   const maxIndex = Math.max(0, items.length - perView);
   const slots = perView + PEEK;
   const pageCount = Math.ceil(items.length / perView);
-  const page = Math.floor(index / perView);
+  const page =
+    index >= maxIndex ? pageCount - 1 : Math.floor(index / perView);
 
   useEffect(() => {
     const media = window.matchMedia("(min-width: 768px)");
@@ -66,8 +152,7 @@ export default function PolicymakerRail({
       setStepPx((cardWidth + GAP_PX) * perView);
       setIndex((current) => {
         const nextMax = Math.max(0, items.length - perView);
-        const snapped = Math.floor(current / perView) * perView;
-        return Math.min(snapped, nextMax);
+        return Math.min(current, nextMax);
       });
     };
 
@@ -115,6 +200,7 @@ export default function PolicymakerRail({
 
   const onPointerDown = (event: React.PointerEvent<HTMLDivElement>) => {
     if (pageCount <= 1 || event.button !== 0) return;
+    if ((event.target as HTMLElement).closest("button")) return;
 
     dragRef.current = {
       pointerId: event.pointerId,
@@ -189,25 +275,14 @@ export default function PolicymakerRail({
         onPointerCancel={onPointerCancel}
       >
         <div className="policymaker-rail-track" style={trackStyle}>
-          {items.map((item) => (
-            <article
+          {items.map((item, itemIndex) => (
+            <PolicymakerCardArticle
               key={item.title}
-              className="policymaker-rail-card"
+              item={item}
+              isFullyVisible={itemIndex >= index && itemIndex < index + perView}
+              onReveal={() => goToPage(Math.floor(itemIndex / perView))}
               style={cardStyle}
-            >
-              <div className="relative aspect-[16/10] overflow-hidden bg-[color-mix(in_srgb,#121022_4%,#F8F7F9)]">
-                <Image
-                  src={item.src}
-                  alt={item.alt}
-                  fill
-                  draggable={false}
-                  sizes="(max-width: 767px) 86vw, 50vw"
-                  className="object-cover object-center"
-                />
-              </div>
-              <p className="t-card-title s-after-media">{item.title}</p>
-              <p className="t-meta s-after-label">{item.caption}</p>
-            </article>
+            />
           ))}
         </div>
       </div>
