@@ -478,7 +478,7 @@ export default function Home() {
                   alt: "Gareth Wynn Owen and guests at the UK Pavilion at ShiftED'24",
                   title: "Inaugurating the UK Pavilion at ShiftED'24",
                   caption:
-                    "Gareth Wynn Owen, British Deputy High Commissioner to Telangana & Andhra Pradesh, graced the UK pavilion at ShiftED'24, bringing 10+ UK universities face-to-face with students and parents.",
+                    "Gareth Wynn Owen, British Deputy High Commissioner to Telangana & Andhra Pradesh, and Dr. Pramath Raj Sinha, Chairperson of the Board of Trustees, Ashoka University, graced the UK pavilion at ShiftED'24, bringing 10+ UK universities face-to-face with students and parents.",
                 },
                 {
                   src: "/policymaker-6.jpg",
